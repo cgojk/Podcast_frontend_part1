@@ -1,27 +1,33 @@
-.social{
-    background:var(--dark-color);
-    color:#fff;
+.social_section {
+    background:var(--body-bg);
+    color: var(--base-txt-color);
     padding:6rem 2rem;
     text-align:center;
     font-size:1.7rem;
     margin-bottom:0;
+    margin-top:2em;
+    border-radius: 20px;
 }
-.social a{
-    color:#fff;
-}
-
-.social a:hover{
-    color:var(--secondary-color);
+.social_section a{
+    color: var(--base-txt-color);
 }
 
-.social p{
+.social_section a:hover{
+    color:var(--brand-color);
+}
+
+.social_section p{
     margin-bottom:2rem;
 
 }
-.social .social-icons{
+ .social-icons{
     display:flex;
     justify-content: center;
     gap:1rem;
     margin-top:2rem;
+    color: var(--brand-color);
     
+}
+.color{
+    color: var(--base-txt-color);
 }

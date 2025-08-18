@@ -4,22 +4,18 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaPinterest 
 
 export default function Contact() {
     return (
-        <section className="contact-section">
-        <div className="contact-page">
+    <section className="contact-section">
+        
+
+            <h1 className="team-title center">Contact Us</h1>
             
-            <div className="about-page-content">
-                
-            </div>
-            <div className="about-page-cta">
-               
-                
-            </div>
-        </div>
+            <p className="title_section-sm"> We would love to hear from you. Whether you have a question about our podcasts, need assistance, or just want to share your thoughts, we are here to help.</p>
+        
         <FormsContact/>
        
-        <section class="social section">
+        <section class="social_section">
           <div class="container">
-            <p>Follow us on social media for updates and news about our Podcasts </p>
+            <p className="title_section-sm color">Follow us on social media for updates and news about our Podcasts </p>
               <div class="social-icons">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Follow Us On Facebook">
                   <FaFacebook size={32} />

@@ -66,11 +66,11 @@ export default function Rating({color = 'gold'}) {
     {/* modal */}
     {submitted && (
       <div className="modal-overlay">
-        <div className="modal">
+        <div className="modal-content">
           <h3>Thank you for your feedback!</h3>
           <p>Your rating: {rating} star{rating > 1 ? 's' : ''}</p>
-          <button className="close-btn" onClick={closeModal}>
-            close
+          <button className="modal-close-button" onClick={closeModal}>
+            X
           </button>
           <p>We appreciate your input and will use it to improve our service.</p>
         </div>

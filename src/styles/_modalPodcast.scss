@@ -29,7 +29,7 @@
   text-align: left;
 }
 
-/* Add hover effect to clickable cards */
+/* hover effect to clickable cards */
 .contact-card {
   cursor: pointer;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -40,7 +40,7 @@
   transform: translateY(-2px);
 }
 
-/* Optional: style the modal close button */
+/*  style the modal close button */
 .modal-close-button {
   position: absolute;
   top: 0px;
@@ -53,4 +53,5 @@
   line-height: 1;
   color: var(--base-txt-color); 
   z-index: 10;
+  
 }
