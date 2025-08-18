@@ -1,0 +1,84 @@
+.star.active{
+    color:gold;
+}
+
+.rating-container {
+  text-align: center;
+  padding: 40px 30px;
+  border: 1px solid #ddd;
+  width: 400px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2em;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.star {
+  transition: color 0.2s ease-in-out;
+  color: #ccc;
+}
+
+.feedback {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+// submit button
+.submit-button {
+
+  background-color:var(--brand-color);
+ 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:disabled{
+  background-color:gray;
+  cursor:not-allowed;
+  opacity: 0.6;
+
+}
+.modal-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.close-button {
+  background-color: var(--brand-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.close-button:hover {
+  background-color: #b38f2f; /* Darker shade for hover effect */
+}
+

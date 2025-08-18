@@ -1,0 +1,55 @@
+/* About Team */
+.about-page-container{
+
+  background-color: var(--base-txt-color);
+
+}
+.about_team {
+    
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.teams__container {
+  
+  background-color: var(--base-txt-color);
+}
+.aboutteam__card {
+  padding: 2em;
+  background-color: var(--base-txt-color); /* Semi-transparent white */
+  border-radius: 2em;
+  backdrop-filter: blur(4px); /* Optional: adds a soft blur effect */
+}
+
+.aboutteam__image img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1.5rem;
+}
+
+.aboutteam__card-text,
+.aboutteam__card-title {
+  // color: black; /* Or any dark contrasting color */
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  color:white;
+}
+
+// about team styles
+
+.about_team{
+  background-color:var(--base-txt-color);
+  padding: 3em;          /* spacing top & bottom */
+}
+.teams__container{
+  background-color: var(--body-bg);
+  padding: 2em;           /* spacing top & bottom */
+}
+.team-title{
+  color:var(--body-bg);
+  margin-bottom: 1em;
+}

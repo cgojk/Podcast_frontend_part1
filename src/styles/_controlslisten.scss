@@ -1,0 +1,53 @@
+
+// ============================controls ==========
+
+/* Container styling */
+// podcast control styling
+.player-card {
+  background: #181818;
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+
+
+ .audio-player {
+display: flex;
+ align-items: center;
+gap: 1rem;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.rhap_container {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Main control buttons (play, skip) */
+.rhap_main-controls button {
+  color: #141413;
+  font-size: 1.2rem;
+}
+
+/* Progress bar */
+.rhap_progress-bar {
+  background-color: #ccc;
+  height: 5px;
+}
+
+.rhap_progress-filled {
+  background-color: #141413;
+}
+
+.rhap_progress-indicator {
+  background-color: #141413;
+}

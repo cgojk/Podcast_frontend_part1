@@ -1,0 +1,78 @@
+// grid home page styles
+
+
+
+
+
+.genre-grid.container {
+  padding: 4rem 2rem;
+  background-color:var(--body-bg);
+  text-align: center;
+  margin-bottom:2em;
+  border-radius:20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.genre-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.genre-card:hover {
+  transform: scale(1.03);
+}
+
+.genre-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 70%;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.genre-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.genre-overlay {
+  // position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+  color: white;
+  text-align: left;
+  border-radius: 0 0 12px 12px;
+}
+
+.genre-overlay h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.genre-cta {
+  font-size: 0.875rem;
+  color: #ddd;
+  opacity: 0.85;
+}
+.genre-title-home{
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--base-txt-color);
+}

@@ -1,0 +1,85 @@
+
+.logos-section{
+    background-color: var(--body-bg);
+   
+}
+
+.logo-section {
+    text-align: center;
+    background-color: var(--body-bg);
+    padding: 4rem 0;
+    
+
+}
+
+.logo-description {
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.logo-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // gap: 1rem;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+}
+
+/* Make arrow buttons stay outside */
+.arrow-container {
+    flex-shrink: 0;
+}
+
+/* Arrows */
+.carousel-arrow {
+    background: none;
+    border: 1px solid var(--brand-color);
+    color: var(--brand-color);
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    // opacity: 0.7;
+    // transition: background 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    opacity:0.7;
+    // background-color: var(--brand-color);
+}
+/* Scrollable logos */
+.logo_container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 2rem;
+    padding: 2em;
+    scrollbar-width: none;
+    flex-grow: 1;
+}
+
+.logo_container::-webkit-scrollbar {
+    display: none;
+}
+
+.logo-item {
+    flex: 0 0 auto;
+    width: 150px;
+    height: auto;
+    
+}
+
+.logo-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 80px;
+}
+.logo-title{
+    text-align:center;
+    color:var(--body-bg);
+    margin-bottom:1em;
+}

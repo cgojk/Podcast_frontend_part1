@@ -1,0 +1,101 @@
+// sections and layouts 
+
+
+.container {
+    max-width:1200px;
+    margin: 0 auto;
+    padding: 2em 2em;
+    
+   
+}
+
+.main-content {
+  margin-top: 0;
+  background-color: var(--base-txt-color) /* Matches wave fill */
+
+}
+
+.podcast-section {
+//   text-align: center;
+  margin: 4rem auto;
+  padding: 2.5em;
+  text-align: center;
+  background-color: var(--base-txt-color);
+
+}
+
+
+.section{
+    margin:4rem 0;
+
+
+}
+// social
+
+
+
+
+// Section About page Mission and Story 
+
+.mission-section {
+  background-color: var(--base-txt-color);
+  padding: 4rem 0;           /* spacing top & bottom */
+  width: 100%;
+  color:white;
+}
+
+.mission_container{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items:center;
+  background-color:var(--body-bg);;
+
+  // gap: 2rem; /* Space between items */
+  
+  
+  // justify-content: space-between;
+  gap:2em;
+  padding: 2rem;
+}
+.mission-image{
+  width: 100%;
+  
+  height:auto;
+  border-radius: 10px;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.container_text_mission {
+  
+  max-width: 500px;
+  display:flex;
+  flex-direction: column;
+  gap:3em;
+}
+
+.mission-container_image{
+  
+  max-width: 500px; /* Adjust as needed */
+}
+// .mission-title_container{
+// margin-bottom:1em;
+// }
+ 
+.mission-title{
+  text-align:center;
+  margin-bottom: 1em;
+ 
+
+
+}
+.mission-description  {
+  color:var(--base-txt-color);
+  
+}
+.mission-title_container{
+   color:var(--base-txt-color);
+}
+.mission_container.reverse {
+  flex-direction: row-reverse;
+}

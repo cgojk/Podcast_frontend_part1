@@ -1,0 +1,171 @@
+
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body {
+   
+   font-family:var(--base-font-family);
+    background-color: var(--body-bg);
+    color: var(--base-txt-color);
+    line-height:1.6;
+    font-size: var(--font-size-base);
+    
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+   max-width: 100%;
+}
+//==================================== typography=======================================
+h1 {
+    // margin-top: 1.5rem;
+    font-size: var(--font-size-title);
+    color:var(--title-color);
+    font-weight: 700;
+}
+.title_section{
+    font-size: var(--title-sections);
+    text-align:center;
+    margin-top: 2em;
+    // margin-bottom: 1.5em;
+    color: var(--heading-color);
+}
+h2 {
+    font-size: var(--font-size-subtitle);
+    margin-bottom:2em;
+    color: var(--heading-color);
+}
+h3{
+    margin-top:1em;
+    margin-bottom: 1em;
+    font-size: 1rem;
+}
+h4{
+    font-size: 0.8rem
+}
+p{
+    margin-bottom:2em;
+}
+
+
+// ===========================================header navigation ========================
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color:#f5f9f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); // optional
+}
+// =================================navigation styles =============
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap:2em;
+    margin: 0;
+    padding-right:2em;
+    
+}
+.nav-list-item a {
+    text-decoration: none;
+    color: #031b37;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    
+}
+
+.nav-list-item {
+    margin-left: 10px;
+    font-size: 1.1rem;
+}
+
+.nav-list-item a:hover {
+    color: #031b37;
+    text-decoration: underline;
+    font-weight:500;
+}
+
+.nav-logo {
+    width: 65px;
+    margin-left:1em;
+    cursor:pointer;
+    
+    
+
+}
+// styling the active mode of the link when the user is in a determined page this will happen the link is active
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #101010; 
+  text-decoration: underline;/* or whatever active color you want */
+  text-decoration-color: #c2a83f; 
+}
+
+.nav-title {
+    color:#dfd932;
+    text-decoration: none;
+    font-size:1.5rem;
+
+}
+.nav-logo:hover {
+    cursor: pointer;
+}
+
+//====================================== hamburguer menu==================================================
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    font-size: 2rem;
+    cursor:pointer;
+    margin-left:auto;
+    color: black;
+    margin-right:1em;
+}
+
+// About page styles ======================================================================
+.about-list{
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+
+
+
+
+// images general style
+img{
+    width:100%;
+    height:auto;
+    display: block;;
+}
+
+// makign the page fill the entire height of the screen============================
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* This allows main content to expand and push footer to the bottom */
+.main-content {
+  flex: 1;
+}

@@ -1,0 +1,78 @@
+.hero {
+  position: relative;
+  background: linear-gradient(to right, #2c3f50, #556886);
+  color: white;
+//   padding: 4rem 2rem  ;
+    padding: 12em 6em ;
+  // overflow-x: hidden;
+  text-align: center;
+}
+
+.hero-flex {
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+  justify-content: space-between;
+ 
+  
+  
+}
+// * Image styling */
+
+
+
+
+
+.btn {
+  background-color: #c2a83f;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+}
+.btn:hover{
+  background-color:var(--body-bg);
+  color: #141413;
+  border: 0.2em solid #c2a83f;
+
+}
+
+.frame-decoration {
+  position: absolute;
+  bottom:-1px;
+//   bottom: 0;
+  left: 0;
+  width: 100%;
+  height:auto;
+    
+    z-index: 0 ;
+    // this here is added to make the wave fill the whole screen
+}
+
+
+.hero-image-wrapper {
+  max-width: 400px;
+  min-width:300px;
+  height:auto;
+  
+  width: 100%;
+  aspect-ratio: 1 / 1; // ensures square
+  overflow: hidden;
+}
+
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  mix-blend-mode: lighten; // or try multiply / screen / overlay
+  opacity: 0.9;             // optional: soft blending
+}
+
+
+
+  

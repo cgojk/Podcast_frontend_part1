@@ -1,0 +1,177 @@
+@media(max-width:1200px){
+    .hero .hero-flex{
+        gap:2rem;
+
+    }
+
+    .hero img {
+        max-width:500px;
+        margin-right:0;
+    }
+
+  }
+  @media (max-width: 1024px) {
+  .wrapper_image_podcast .aspect-ratio-box {
+    padding-top: 90%;
+  }
+   .podcast-content_detail{
+    gap:0.1em;
+
+  }
+
+}
+
+
+  @media(max-width:992px){
+ .hero {
+    text-align:center;
+
+ }
+ .hero .hero-flex{
+    flex-direction:column;
+    padding-bottom:4rem;
+
+ }
+ /* Testimonials */
+  .testimonials__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials__card {
+    padding: 0 1.5rem;
+  }
+
+  .testimonials__card:nth-child(3) {
+    display: none;
+  }
+
+  .podcast-content_detail{
+    gap:0.1em;
+
+  }
+}
+
+@media (max-width:768px){
+
+    .hero-image-wrapper {
+    min-width: 300px;
+    width: 50%;
+  }
+
+    .menu-btn{
+        display:block;
+    }
+    .nav-list{
+        display:none;
+        flex-direction:column;
+        align-content: center;
+        text-align: center;
+        background-color: #f5f9f8;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 2em;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        opacity:0.95;
+
+    }
+    .nav-list.open {
+    display: flex; // show nav list when menu is toggled open
+  }
+
+  .nav-list-item {
+    margin: 10px 0;
+  }
+  
+  // podcasts details styles
+  .podcast-detail
+   {
+    display:flex;
+    flex-direction: column;
+  }
+  .podcast-image,
+  .podcast-content
+  {
+    width:100%;
+  }
+   /* Testimonials */
+  .testimonials__container {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials__card:nth-child(2) {
+    display: none;
+  }
+  // podcast cards listen styles
+  .wrapper_image_podcast {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+.wrapper_image_podcast .aspect-ratio-box {
+    padding-top: 60%;
+  }
+  .podcast-icons{
+  margin-top: 1.5em;
+  }
+
+  // .podcast-content {
+  //   margin-top: 1.5em;
+    
+  // }
+  .podcast-content_detail{
+    gap:0.1em;
+
+  }
+  .podcast-icons{
+    gap:2em;
+  }
+
+
+ 
+ 
+
+ 
+
+  // merch styles 
+
+}
+
+
+@media (max-width: 600px) {
+  .cardItem {
+    gap: 6px;
+    padding: 0;
+  }
+.wrapper_image_podcast .aspect-ratio-box {
+    padding-top: 60%;
+  }
+  .contact-card {
+    padding: 10px;
+  }
+
+  .title_podcasts_genre {
+    font-size: 0.85rem;
+  }
+
+  .description_short {
+    font-size: 0.8rem;
+  }
+}
+
+
+   
+    @media (max-width: 450px) {
+  .episode-card {
+    flex-direction: column;
+    width: 100%; 
+
+  }
+
+  .episode-image,
+  .episode-content {
+    width: 100%;
+  }
+}
+    
