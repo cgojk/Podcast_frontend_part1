@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
@@ -187,6 +185,35 @@ export default function Podcasts() {
           <p>No podcasts found.</p>
         )}
       </div>
+
+
+      {/* Navigation Buttons */}
+      <div className="navigation-buttons container" >
+        <button
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="nav-button back-button">
+          ↑ Back to Top
+        </button>
+
+        {podcasts.length > 0 && (
+          <button
+            onClick={() => {
+              const firstPodcast = podcasts[0];
+              navigate(`/podcasts/${firstPodcast.podcast_id || firstPodcast.id}`);
+            }}
+            className="nav-button forward-button"
+          >
+            Go to First Podcast →
+          </button>
+        )}
+      </div>
+
+
+
+
+
 
 
       {/* Modal */}

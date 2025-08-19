@@ -14,6 +14,7 @@ input[type="email"], input[type="password"] {
     height: 2rem;
     text-indent: 10px;
     margin-bottom: 20px;
+    padding:1.5em;
 }
 
 textarea {
@@ -22,10 +23,11 @@ textarea {
 
 input[type="text"], input[type="name"] {
     border-radius: 100px;
-    border: 1px solid var(--brand-color);
+    border: 3px solid var(--brand-color);
     height: 2rem;
     text-indent: 10px;
     margin-bottom: 20px;
+    padding:1.5em;
 }
 
 fieldset {
@@ -70,3 +72,4 @@ fieldset {
     padding: 2em;
     background-color: var(--text-bg-color);
 }
+

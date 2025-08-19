@@ -76,9 +76,17 @@
     width: 100%;
     height: auto;
     object-fit: contain;
-    border-radius: 80px;
+    border-radius: 50%; 
+    border: 2px solid var(--brand-color); /* green border */
+    padding: 1.5px; 
+    background-color: white;
+    transition: transform 0.3s ease;
 }
-.logo-title{
+
+.logo-item:hover img {
+    transform: scale(1.05);
+}
+    .logo-title{
     text-align:center;
     color:var(--body-bg);
     margin-bottom:1em;

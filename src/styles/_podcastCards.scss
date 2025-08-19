@@ -88,10 +88,10 @@
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     display: flex;
-    // flex-direction: column;
+ 
     padding: 13px;
     max-width:100%;
-    padding-bottom: 20px;
+   
     background-color: var(--base-txt-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position:relative;
@@ -210,6 +210,7 @@
   align-self: start;
     cursor: pointer;
 }
+
 .title_podcasts_genre{
    
     text-align: left;
@@ -391,7 +392,7 @@ align-items: center;;
     font-size:0.7rem;
 
   }
-  // epidos styles
+  // -----------episode styles
 
 .episode-image {
     max-width: 40%;
@@ -442,7 +443,7 @@ align-items: center;;
 }
 
 
-// genre podcast buttonss styles
+//------------------- genre podcast buttonss styles
 
 .genre-buttons{
     display: flex;
@@ -457,8 +458,8 @@ align-items: center;;
 .genre-button {
     background-color: var(--body-bg);
     color: var(--base-txt-color);
-    padding: 0.5em 1em;
-    border: none;
+    padding: 0.8em;
+    border: 2px solid var(--brand-color);
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.9rem;
@@ -547,4 +548,50 @@ display:flex;
     gap: 1em;
     width: 100%;
     max-width: 600px;
+}
+// -----------navigation buttons podcasts ----------
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+ .forward-button,
+ .back-button,
+ .top-button,
+ .nav-button {
+            background-color: #c2a83f;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+}
+
+// search styles podcasts
+
+.search-form {
+  
+  width: 350px;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  padding: 0.6em 2.5em 0.6em 0.8em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  position: relative;
+}
+
+.search-button {
+  position: absolute;
+  left: -23em;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #444;
+  margin-right: 0.5em;
 }

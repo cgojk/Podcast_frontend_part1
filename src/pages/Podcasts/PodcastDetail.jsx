@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   RiPlayCircleFill,
   RiDownload2Line,
@@ -16,8 +16,9 @@ export default function PodcastDetail() {
   const [episodes, setEpisodes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortOrder, setSortOrder] = useState("episode_number_DESC");  
-  // sort order state
+  const [sortOrder, setSortOrder] = useState("episode_number_DESC");
+
+  const navigate = useNavigate(); // for navigation
 
   const toggleSortOrder = () => {
     setSortOrder((prev) =>
@@ -31,7 +32,7 @@ export default function PodcastDetail() {
 
     Promise.all([
       fetch(`http://localhost:3000/api/podcasts/${id}`),
-      fetch(`http://localhost:3000/api/podcasts/${id}/episodes?sort=${sortOrder}`) // 👈 pass sort query
+      fetch(`http://localhost:3000/api/podcasts/${id}/episodes?sort=${sortOrder}`)
     ])
       .then(async ([podcastRes, episodesRes]) => {
         if (!podcastRes.ok) throw new Error("Podcast not found");
@@ -48,7 +49,7 @@ export default function PodcastDetail() {
         setError(err.message);
         setLoading(false);
       });
-  }, [id, sortOrder]); //  re-run when sortOrder changes
+  }, [id, sortOrder]);
 
   if (loading) return <p>Fetching data...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -63,10 +64,9 @@ export default function PodcastDetail() {
     <>
       <section className="podcast-detail container">
         <div className="wrapper_image_podcast">
-          
           <div className="cards_podcasts_listen">
             <div className="card_image_podcast">
-                <div className="aspect-ratio-box">  
+              <div className="aspect-ratio-box">
                 <img
                   className="image_podcast_listen"
                   src={imageToShow}
@@ -76,7 +76,7 @@ export default function PodcastDetail() {
                     e.target.src = getRandomFallbackImage(podcast.podcast_id);
                   }}
                 />
-               </div> 
+              </div>
             </div>
             <div className="podcast-icons">
               <button aria-label="Play audio" className="icon-button">
@@ -106,10 +106,8 @@ export default function PodcastDetail() {
       </section>
 
       <section className="podcast-episodes container">
-         <h1 className="team-title center">Episodes</h1>
+        <h1 className="team-title center">Episodes</h1>
         <div className="episodes-section">
-         
-
           {/* Sort toggle button */}
           <button onClick={toggleSortOrder} className="sort-button">
             Sort: {sortOrder === "episode_number_DESC" ? "Newest First" : "Oldest First"}
@@ -146,6 +144,29 @@ export default function PodcastDetail() {
           )}
         </div>
       </section>
+
+      {/* Navigation Buttons */}
+      <div className="navigation-buttons container" >
+        <button
+          onClick={() => {
+            navigate("/podcasts");
+          }}
+          className="nav-button back-button"
+          
+        >
+          ← Back to All Podcasts
+        </button>
+
+        <button
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="nav-button top-button"
+          
+        >
+          ↑ Back to Top
+        </button>
+      </div>
     </>
   );
 }
