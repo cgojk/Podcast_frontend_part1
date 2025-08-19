@@ -9,6 +9,8 @@
         margin-right:0;
     }
 
+
+
   }
   @media (max-width: 1024px) {
   .wrapper_image_podcast .aspect-ratio-box {
@@ -139,6 +141,8 @@
 }
 
 
+
+
 @media (max-width: 600px) {
   .cardItem {
     gap: 6px;
@@ -158,20 +162,56 @@
   .description_short {
     font-size: 0.8rem;
   }
-}
 
-
+.episode-content{
    
-    @media (max-width: 450px) {
-  .episode-card {
-    flex-direction: column;
-    width: 100%; 
+    margin-left: 20px;
+    width:60%;
+}
 
+  .episode-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    
   }
 
-  .episode-image,
-  .episode-content {
+  .episode-card .episode-image,
+  .episode-card .episode-content {
     width: 100%;
+    max-width: 100%;
+    margin:0 auto;
+  }
+
+  .episode-thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .episode-thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+
+}
+
+@media (max-width: 550px) {
+  
+.container .episodes-list {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+
+  .episode-card {
+    margin-bottom: 1.5rem;
+    flex-direction: column;
   }
 }
+
+
+
     

@@ -105,7 +105,8 @@ export default function PodcastDetail() {
         </div>
       </section>
 
-      <section className="podcast-episodes container">
+      <section className="podcast-episodes ">
+        <div className="container">
         <h1 className="team-title center">Episodes</h1>
         <div className="episodes-section">
           {/* Sort toggle button */}
@@ -164,6 +165,7 @@ export default function PodcastDetail() {
           ↑ Back to Top
         </button>
       </div>
+        </div>
         </div>
       </section>
 

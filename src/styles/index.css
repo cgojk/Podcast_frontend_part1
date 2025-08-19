@@ -31,6 +31,7 @@ body {
   color: var(--base-txt-color);
   line-height: 1.6;
   font-size: var(--font-size-base);
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 html,
@@ -61,7 +62,7 @@ h2 {
 h3 {
   margin-top: 1em;
   margin-bottom: 1em;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 h4 {
@@ -296,6 +297,7 @@ input[type=email], input[type=password] {
   height: 2rem;
   text-indent: 10px;
   margin-bottom: 20px;
+  padding: 1.5em;
 }
 
 textarea {
@@ -304,10 +306,11 @@ textarea {
 
 input[type=text], input[type=name] {
   border-radius: 100px;
-  border: 1px solid var(--brand-color);
+  border: 3px solid var(--brand-color);
   height: 2rem;
   text-indent: 10px;
   margin-bottom: 20px;
+  padding: 1.5em;
 }
 
 fieldset {
@@ -335,16 +338,19 @@ fieldset {
 }
 
 .form_contact {
-  background-color: #2c3f50;
-  margin-top: 5em;
-  padding: 2em;
-  border-radius: 50px solid var(--bg-color);
+  background-color: var(--body-bg);
+  border-radius: 20px;
 }
 
 .form_title {
   color: white;
   font-size: var(--font-size-lg);
   text-align: center;
+}
+
+.contact-section {
+  padding: 2em;
+  background-color: var(--text-bg-color);
 }
 
 @media (max-width: 1200px) {
@@ -358,7 +364,10 @@ fieldset {
 }
 @media (max-width: 1024px) {
   .wrapper_image_podcast .aspect-ratio-box {
-    padding-top: 110%;
+    padding-top: 90%;
+  }
+  .podcast-content_detail {
+    gap: 0.1em;
   }
 }
 @media (max-width: 992px) {
@@ -378,6 +387,9 @@ fieldset {
   }
   .testimonials__card:nth-child(3) {
     display: none;
+  }
+  .podcast-content_detail {
+    gap: 0.1em;
   }
 }
 @media (max-width: 768px) {
@@ -431,8 +443,14 @@ fieldset {
   .wrapper_image_podcast .aspect-ratio-box {
     padding-top: 60%;
   }
-  .podcast-content {
+  .podcast-icons {
     margin-top: 1.5em;
+  }
+  .podcast-content_detail {
+    gap: 0.1em;
+  }
+  .podcast-icons {
+    gap: 2em;
   }
 }
 @media (max-width: 600px) {
@@ -452,15 +470,43 @@ fieldset {
   .description_short {
     font-size: 0.8rem;
   }
-}
-@media (max-width: 450px) {
-  .episode-card {
-    flex-direction: column;
-    width: 100%;
-  }
-  .episode-image,
   .episode-content {
+    margin-left: 20px;
+    width: 60%;
+  }
+  .episode-card {
     width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
+  .episode-card .episode-image,
+  .episode-card .episode-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .episode-thumbnail {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+    display: block;
+  }
+  .episode-thumbnail {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+    display: block;
+  }
+}
+@media (max-width: 550px) {
+  .container .episodes-list {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+  .episode-card {
+    margin-bottom: 1.5rem;
+    flex-direction: column;
   }
 }
 .add-podcast-form {
@@ -609,7 +655,7 @@ fieldset {
   justify-content: center;
   flex-wrap: wrap;
   background-color: var(--body-bg);
-  padding: 2em;
+  padding: 3em;
   gap: 40px;
   border-radius: 20px;
 }
@@ -690,7 +736,6 @@ fieldset {
   display: flex;
   padding: 13px;
   max-width: 100%;
-  padding-bottom: 20px;
   background-color: var(--base-txt-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -895,7 +940,6 @@ fieldset {
   display: flex;
   gap: 1em;
   align-items: center;
-  margin-top: 1.5em;
 }
 
 .podcast-icons button {
@@ -937,6 +981,7 @@ fieldset {
   margin-top: 2em;
   background-color: var(--body-bg);
   padding: 2em;
+  border-radius: 20px;
 }
 
 .episode-card {
@@ -983,6 +1028,23 @@ h4 {
   width: 60%;
 }
 
+.sort-button {
+  background-color: var(--brand-color);
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 1em;
+}
+
+.center {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
 .controls_panel {
   margin-top: 0.5em;
   background-color: var(--body-bg);
@@ -1004,13 +1066,14 @@ h4 {
   align-content: center;
   text-align: center;
   justify-content: center;
+  margin-bottom: 2em;
 }
 
 .genre-button {
   background-color: var(--body-bg);
   color: var(--base-txt-color);
-  padding: 0.5em 1em;
-  border: none;
+  padding: 0.8em;
+  border: 2px solid var(--brand-color);
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem;
@@ -1039,6 +1102,7 @@ h4 {
   background-color: var(--base-txt-color);
   padding: 2em;
   display: flex;
+  margin-top: 3em;
 }
 
 .cards_podcasts_listen {
@@ -1085,11 +1149,54 @@ h4 {
 }
 
 .podcast-content_detail {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1em;
   width: 100%;
   max-width: 600px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 2em;
+}
+
+.forward-button,
+.back-button,
+.top-button,
+.nav-button {
+  background-color: #c2a83f;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-form {
+  width: 350px;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  padding: 0.6em 2.5em 0.6em 0.8em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  position: relative;
+}
+
+.search-button {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #444;
+  margin-right: 0.5em;
 }
 
 .hero {
@@ -1152,32 +1259,39 @@ h4 {
   opacity: 0.9;
 }
 
-.social {
-  background: var(--dark-color);
-  color: #fff;
+.social_section {
+  background: var(--body-bg);
+  color: var(--base-txt-color);
   padding: 6rem 2rem;
   text-align: center;
   font-size: 1.7rem;
   margin-bottom: 0;
+  margin-top: 2em;
+  border-radius: 20px;
 }
 
-.social a {
-  color: #fff;
+.social_section a {
+  color: var(--base-txt-color);
 }
 
-.social a:hover {
-  color: var(--secondary-color);
+.social_section a:hover {
+  color: var(--brand-color);
 }
 
-.social p {
+.social_section p {
   margin-bottom: 2rem;
 }
 
-.social .social-icons {
+.social-icons {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: 2rem;
+  color: var(--brand-color);
+}
+
+.color {
+  color: var(--base-txt-color);
 }
 
 .footer {
@@ -1569,7 +1683,15 @@ h4 {
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
-  border-radius: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--brand-color); /* green border */
+  padding: 1.5px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.logo-item:hover img {
+  transform: scale(1.05);
 }
 
 .logo-title {
@@ -1606,7 +1728,7 @@ h4 {
   text-align: left;
 }
 
-/* Add hover effect to clickable cards */
+/* hover effect to clickable cards */
 .contact-card {
   cursor: pointer;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -1617,7 +1739,7 @@ h4 {
   transform: translateY(-2px);
 }
 
-/* Optional: style the modal close button */
+/*  style the modal close button */
 .modal-close-button {
   position: absolute;
   top: 0px;
