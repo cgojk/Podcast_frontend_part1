@@ -142,10 +142,7 @@ export default function PodcastDetail() {
           ) : (
             <p>No episodes found.</p>
           )}
-        </div>
-      </section>
-
-      {/* Navigation Buttons */}
+          {/* Navigation Buttons */}
       <div className="navigation-buttons container" >
         <button
           onClick={() => {
@@ -167,6 +164,10 @@ export default function PodcastDetail() {
           ↑ Back to Top
         </button>
       </div>
+        </div>
+      </section>
+
+      
     </>
   );
 }

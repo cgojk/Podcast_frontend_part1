@@ -184,10 +184,8 @@ export default function Podcasts() {
         ) : (
           <p>No podcasts found.</p>
         )}
-      </div>
 
-
-      {/* Navigation Buttons */}
+        {/* Navigation Buttons */}
       <div className="navigation-buttons container" >
         <button
           onClick={() => {
@@ -210,6 +208,13 @@ export default function Podcasts() {
         )}
       </div>
 
+
+
+
+      </div>
+
+
+      
 
 
 
