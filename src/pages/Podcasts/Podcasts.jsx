@@ -191,8 +191,8 @@ export default function Podcasts() {
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="nav-button back-button">
-          ↑ Back to Top
+          className="nav-button top-button">
+          <span className="arrow">↑</span> Back to Top
         </button>
 
         {podcasts.length > 0 && (
@@ -203,7 +203,7 @@ export default function Podcasts() {
             }}
             className="nav-button forward-button"
           >
-            Go to First Podcast →
+            <span className="arrow">→</span> Go to First Podcast
           </button>
         )}
       </div>

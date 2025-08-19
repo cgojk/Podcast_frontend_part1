@@ -88,11 +88,12 @@
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     display: flex;
- 
-    padding: 13px;
+    padding: 3px;
+    background-color:var(--brand-color);
     max-width:100%;
+    border:5px solid var(--body-bg);
+
    
-    background-color: var(--base-txt-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position:relative;
 }
@@ -375,7 +376,9 @@ align-items: center;;
     padding: 1em;
     border-radius: 8px;
     margin-bottom: 1em;
-    border: 1px solid #ddd;
+    border: 1px solid var(--brand-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    
   }
   .episodes-list{
     display:grid;
@@ -556,18 +559,60 @@ display:flex;
     margin-top: 2rem;
     gap:2em;
 }
- .forward-button,
- .back-button,
- .top-button,
- .nav-button {
-            background-color: #c2a83f;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.25rem;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
+.nav-button,
+.forward-button,
+.back-button,
+.top-button
+
+ {
+  background-color: #c2a83f;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  
+  cursor: pointer;
+  display: inline-flex; 
+  align-items: center;
+  gap: 0.5rem; 
+//   font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
 }
+
+
+.nav-button,
+.forward-button,
+.back-button,
+.top-button:hover {
+  background-color: #a88e30;
+}
+
+
+
+.nav-button .arrow,
+.forward-button .arrow,
+.back-button .arrow,
+.top-button .arrow {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+
+
+.nav-button:hover .arrow,
+.forward-button:hover .arrow,
+.back-button:hover .arrow
+
+{
+  transform: translateX(4px); 
+}
+
+.top-button .arrow{
+     transform: translateY(-3px);
+}
+
+
+
 
 // search styles podcasts
 

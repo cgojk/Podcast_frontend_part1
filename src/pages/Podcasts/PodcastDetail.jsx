@@ -152,7 +152,7 @@ export default function PodcastDetail() {
           className="nav-button back-button"
           
         >
-          ← Back to All Podcasts
+        <span className="arrow">←</span> Back to all Podcasts
         </button>
 
         <button
@@ -162,8 +162,8 @@ export default function PodcastDetail() {
           className="nav-button top-button"
           
         >
-          ↑ Back to Top
-        </button>
+           <span className="arrow">↑</span>Back to Top
+         </button>
       </div>
         </div>
         </div>
