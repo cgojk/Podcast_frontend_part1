@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaPinterest 
 
 export default function Contact() {
     return (
-    <section className="contact-section">
+    <section className="contact-section container">
         
 
             <h1 className="team-title center">Contact Us</h1>

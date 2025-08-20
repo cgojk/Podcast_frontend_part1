@@ -1,8 +1,13 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import CardsEntry from "../../components/CardsEntry.jsx";
-import { getRandomFallbackImage } from "../../utils/fallbackImage.jsx"
+import {
+  getAllPodcasts,
+  getAllGenres
+} from "../../api.js";
+import { getRandomFallbackImage } from "../../utils/fallbackImage.jsx";
 
 export default function Podcasts() {
   const [podcasts, setPodcasts] = useState([]);
@@ -15,14 +20,12 @@ export default function Podcasts() {
 
   const navigate = useNavigate();
 
-  // Load genres -*
+  // Load genres
   useEffect(() => {
     async function loadGenres() {
       try {
-        const res = await fetch("http://localhost:3000/api/genres");
-        if (!res.ok) throw new Error("Failed to fetch genres");
-        const data = await res.json();
-        setGenres(data);
+        const data = await getAllGenres();
+        setGenres(data || []);
       } catch (err) {
         console.error("Failed to fetch genres:", err);
       }
@@ -30,7 +33,7 @@ export default function Podcasts() {
     loadGenres();
   }, []);
 
-  // Load all podcasts 
+  // Load all podcasts initially
   useEffect(() => {
     fetchAllPodcasts();
   }, []);
@@ -39,10 +42,8 @@ export default function Podcasts() {
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch("http://localhost:3000/api/podcasts");
-      if (!res.ok) throw new Error("Failed to fetch podcasts");
-      const data = await res.json();
-      setPodcasts(data);
+      const data = await getAllPodcasts();
+      setPodcasts(data || []);
       setSelectedGenre("All");
     } catch (err) {
       setError(err.message);
@@ -51,23 +52,16 @@ export default function Podcasts() {
     }
   }
 
-  // Handle genre button click (submenu)
+  // Handle genre button click
   async function handleGenreClick(name) {
     setSelectedGenre(name);
-    setSearchInput(""); // clear search input
+    setSearchInput("");
     try {
       setLoading(true);
       setError(null);
-
-      const url =
-        name === "All"
-          ? "http://localhost:3000/api/podcasts"
-          : `http://localhost:3000/api/podcasts?genre=${name.toLowerCase()}`;
-
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("Failed to fetch podcasts");
-      const data = await res.json();
-      setPodcasts(data);
+      const query = name === "All" ? {} : { genre: name.toLowerCase() };
+      const data = await getAllPodcasts(query);
+      setPodcasts(data || []);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -88,17 +82,9 @@ export default function Podcasts() {
     try {
       setLoading(true);
       setError(null);
-
-      const res = await fetch(`http://localhost:3000/api/podcasts?genre=${genre}`);
-      if (!res.ok) throw new Error("Failed to fetch podcasts");
-      const data = await res.json();
-
-      if (Array.isArray(data) && data.length > 0) {
-        setPodcasts(data);
-      } else {
-        setPodcasts([]);
-      }
-      setSelectedGenre("All"); // deselect submenu
+      const data = await getAllPodcasts({ genre });
+      setPodcasts(data || []);
+      setSelectedGenre("All");
     } catch (err) {
       setError(err.message);
     } finally {
@@ -116,23 +102,23 @@ export default function Podcasts() {
 
       {/* Search Form */}
       <div className="search-container">
-          <form onSubmit={handleSearchSubmit} className="search-form">
-            <input
-              type="text"
-              name="podcast"
-              placeholder="Search by genre..."
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              className="search-input"
-            />
-            <button type="submit" className="search-button" aria-label="Search podcasts">
-              <RiSearchLine size={25} />
-            </button>
-      </form>
-   </div>
+        <form onSubmit={handleSearchSubmit} className="search-form">
+          <input
+            type="text"
+            name="podcast"
+            placeholder="Search by genre..."
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            className="search-input"
+          />
+          <button type="submit" className="search-button" aria-label="Search podcasts">
+            <RiSearchLine size={25} />
+          </button>
+        </form>
+      </div>
 
       {/* Genre Buttons */}
-     <div className="genre-buttons">
+      <div className="genre-buttons">
         <button
           className={`genre-button ${selectedGenre === "All" ? "active" : ""}`}
           onClick={() => handleGenreClick("All")}
@@ -147,79 +133,73 @@ export default function Podcasts() {
           >
             {g.name}
           </button>
-  ))}
-</div>
+        ))}
+      </div>
 
       {/* Podcast Cards */}
       <div className="contacts">
         {podcasts.length > 0 ? (
-          podcasts.map((p) => (
-            <CardsEntry
-              key={p.podcast_id || p.id}
-              id={p.podcast_id || p.id}
-              img={p.cover_image_url || p.imageUrl}
-              altText={p.cover_image_alt_text || p.altText}
-              name={p.title || p.name}
-              description={p.description}
-              genre={p.genre_name || p.genre}
-              duration={`Episodes: ${p.episode_count || p.duration}`}
-              hosts={p.hosts}
-              averageRating={p.average_rating || p.averageRating}
-              mode="compact"
-              linkTo={() =>
-                setModalPodcast({
-                  id: p.podcast_id || p.id,
-                  img: p.cover_image_url || p.imageUrl,
-                  altText: p.cover_image_alt_text || p.altText,
-                  name: p.title || p.name,
-                  description: p.description,
-                  genre: p.genre_name || p.genre,
-                  duration: `Episodes: ${p.episode_count || p.duration}`,
-                  hosts: p.hosts,
-                  averageRating: p.average_rating || p.averageRating,
-                })
-              }
-            />
-          ))
+          podcasts.map((p) => {
+            const image = p.cover_image_url || p.imageUrl || getRandomFallbackImage();
+            const altText = p.cover_image_alt_text || p.altText || "Podcast cover";
+
+            return (
+              <CardsEntry
+                key={p.podcast_id || p.id}
+                id={p.podcast_id || p.id}
+                img={image}
+                altText={altText}
+                name={p.title || p.name}
+                description={p.description}
+                genre={p.genre_name || p.genre}
+                duration={`Episodes: ${p.episode_count || p.duration}`}
+                hosts={p.hosts}
+                averageRating={p.average_rating || p.averageRating}
+                mode="compact"
+                linkTo={() =>
+                  setModalPodcast({
+                    id: p.podcast_id || p.id,
+                    img: image,
+                    altText: altText,
+                    name: p.title || p.name,
+                    description: p.description,
+                    genre: p.genre_name || p.genre,
+                    duration: `Episodes: ${p.episode_count || p.duration}`,
+                    hosts: p.hosts,
+                    averageRating: p.average_rating || p.averageRating,
+                  })
+                }
+              />
+            );
+          })
         ) : (
           <p>No podcasts found.</p>
         )}
 
         {/* Navigation Buttons */}
-      <div className="navigation-buttons container" >
-        <button
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="nav-button top-button">
-          <span className="arrow">↑</span> Back to Top
-        </button>
-
-        {podcasts.length > 0 && (
+        <div className="navigation-buttons container">
           <button
             onClick={() => {
-              const firstPodcast = podcasts[0];
-              navigate(`/podcasts/${firstPodcast.podcast_id || firstPodcast.id}`);
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="nav-button forward-button"
+            className="nav-button top-button"
           >
-            <span className="arrow">→</span> Go to First Podcast
+            <span className="arrow">↑</span> Back to Top
           </button>
-        )}
+
+          {podcasts.length > 0 && (
+            <button
+              onClick={() => {
+                const firstPodcast = podcasts[0];
+                navigate(`/podcasts/${firstPodcast.podcast_id || firstPodcast.id}`);
+              }}
+              className="nav-button forward-button"
+            >
+              <span className="arrow">→</span> Go to First Podcast
+            </button>
+          )}
+        </div>
       </div>
-
-
-
-
-      </div>
-
-
-      
-
-
-
-
-
 
       {/* Modal */}
       {modalPodcast && (
@@ -240,8 +220,6 @@ export default function Podcasts() {
                 setModalPodcast(null);
               }}
             />
-
-            {/* <CardsEntry {...modalPodcast} mode="full" /> */}
           </div>
         </div>
       )}

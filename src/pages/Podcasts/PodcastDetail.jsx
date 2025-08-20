@@ -9,6 +9,7 @@ import {
   RiHeadphoneFill,
 } from "react-icons/ri";
 import { getRandomFallbackImage } from "../../utils/fallbackImage";
+import { getSinglePodcast, getAllPodcastEpisodes } from "../../api"; // Reusable API functions
 
 export default function PodcastDetail() {
   const { id } = useParams();
@@ -18,7 +19,7 @@ export default function PodcastDetail() {
   const [error, setError] = useState(null);
   const [sortOrder, setSortOrder] = useState("episode_number_DESC");
 
-  const navigate = useNavigate(); // for navigation
+  const navigate = useNavigate();
 
   const toggleSortOrder = () => {
     setSortOrder((prev) =>
@@ -28,27 +29,27 @@ export default function PodcastDetail() {
 
   useEffect(() => {
     if (!id) return;
-    setLoading(true);
 
-    Promise.all([
-      fetch(`http://localhost:3000/api/podcasts/${id}`),
-      fetch(`http://localhost:3000/api/podcasts/${id}/episodes?sort=${sortOrder}`)
-    ])
-      .then(async ([podcastRes, episodesRes]) => {
-        if (!podcastRes.ok) throw new Error("Podcast not found");
-        if (!episodesRes.ok) throw new Error("Episodes not found");
+    async function fetchData() {
+      setLoading(true);
+      setError(null);
 
-        const podcastData = await podcastRes.json();
-        const episodesData = await episodesRes.json();
+      try {
+        const [podcastData, episodesData] = await Promise.all([
+          getSinglePodcast(id),
+          getAllPodcastEpisodes(id, { sort: sortOrder }),
+        ]);
 
         setPodcast(podcastData);
         setEpisodes(episodesData);
+      } catch (err) {
+        setError(err.message || "Failed to load podcast");
+      } finally {
         setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
+      }
+    }
+
+    fetchData();
   }, [id, sortOrder]);
 
   if (loading) return <p>Fetching data...</p>;
@@ -107,69 +108,61 @@ export default function PodcastDetail() {
 
       <section className="podcast-episodes ">
         <div className="container">
-        <h1 className="team-title center">Episodes</h1>
-        <div className="episodes-section">
-          {/* Sort toggle button */}
-          <button onClick={toggleSortOrder} className="sort-button">
-            Sort: {sortOrder === "episode_number_DESC" ? "Newest First" : "Oldest First"}
-          </button>
+          <h1 className="team-title center">Episodes</h1>
+          <div className="episodes-section">
+            <button onClick={toggleSortOrder} className="sort-button">
+              Sort: {sortOrder === "episode_number_DESC" ? "Newest First" : "Oldest First"}
+            </button>
 
-          {episodes.length > 0 ? (
-            <ul className="episodes-list">
-              {episodes.map((episode) => (
-                <li key={episode.episode_id} className="episode-card">
-                  <div className="episode-image">
-                    <img
-                      src={imageToShow}
-                      alt={`Cover of ${podcast.title}`}
-                      className="episode-thumbnail"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = getRandomFallbackImage(podcast.podcast_id);
-                      }}
-                    />
-                  </div>
-                  <div className="episode-content">
-                    <h4>
-                      Episode {episode.episode_number}: {episode.title}
-                    </h4>
-                    <p>{episode.description}</p>
-                    <small>⏱ {episode.duration} mins</small>
-                    <audio className="controls_panel" controls src={episode.audio_url} />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No episodes found.</p>
-          )}
-          {/* Navigation Buttons */}
-      <div className="navigation-buttons container" >
-        <button
-          onClick={() => {
-            navigate("/podcasts");
-          }}
-          className="nav-button back-button"
-          
-        >
-        <span className="arrow">←</span> Back to all Podcasts
-        </button>
+            {episodes.length > 0 ? (
+              <ul className="episodes-list">
+                {episodes.map((episode) => (
+                  <li key={episode.episode_id} className="episode-card">
+                    <div className="episode-image">
+                      <img
+                        src={imageToShow}
+                        alt={`Cover of ${podcast.title}`}
+                        className="episode-thumbnail"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = getRandomFallbackImage(podcast.podcast_id);
+                        }}
+                      />
+                    </div>
+                    <div className="episode-content">
+                      <h4>
+                        Episode {episode.episode_number}: {episode.title}
+                      </h4>
+                      <p>{episode.description}</p>
+                      <small>⏱ {episode.duration} mins</small>
+                      <audio className="controls_panel" controls src={episode.audio_url} />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No episodes found.</p>
+            )}
 
-        <button
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="nav-button top-button"
-          
-        >
-           <span className="arrow">↑</span>Back to Top
-         </button>
-      </div>
-        </div>
+            {/* Navigation Buttons */}
+            <div className="navigation-buttons container">
+              <button
+                onClick={() => navigate("/podcasts")}
+                className="nav-button back-button"
+              >
+                <span className="arrow">←</span> Back to all Podcasts
+              </button>
+
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="nav-button top-button"
+              >
+                <span className="arrow">↑</span> Back to Top
+              </button>
+            </div>
+          </div>
         </div>
       </section>
-
-      
     </>
   );
 }

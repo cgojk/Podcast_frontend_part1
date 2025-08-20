@@ -119,3 +119,5 @@ export function getSingleEpisode(id) {
 export function getSingleEpisodeTranscript(id) {
     return fetchAPI(`/episodes/${id}/transcript`)
 }
+
+

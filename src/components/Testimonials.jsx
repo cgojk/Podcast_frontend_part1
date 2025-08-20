@@ -42,7 +42,7 @@ export default function Testimonials(){
 
   return (
     <section className="testimonials" aria-label="Corrupted Frequency Reviews">
-         <h2>Corrupted Frequency Reviews</h2>
+         <h2 className="title_section-sm">Corrupted Frequency Reviews</h2>
       <div className="testimonials__container container">
        
         {reviewsData.map((review, index) => (
