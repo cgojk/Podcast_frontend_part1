@@ -8,6 +8,7 @@
     
   padding: 4rem 2rem;
   text-align: center;
+  margin-top:2em;
 }
 
 .teams__container {
@@ -15,20 +16,44 @@
   background-color: var(--base-txt-color);
 }
 .aboutteam__card {
-  padding: 2em;
-  background-color: var(--base-txt-color); /* Semi-transparent white */
+  // position: relative;
+  background-color: var(--body-bg);
+  padding: 2em 2em 2em 2em; /* keep bottom padding normal */
   border-radius: 2em;
-  backdrop-filter: blur(4px); /* Optional: adds a soft blur effect */
+  // overflow: visible; /* very important so image can overflow */
 }
 
-.aboutteam__image img {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 1.5rem;
+.aboutteam__image-container {
+  background-color: var(--base-txt-color); /* or your brand blue */
+  // width: 150px;
+  // height: 150px;
+  margin: 0 auto; /* center horizontally */
+  // border-radius: 1rem;
+  // overflow: visible;
+  // padding: 2em;
+  // position: relative;
 }
+
+// .aboutteam__image-container{
+//   background-color:var(--base-txt-color);
+//   padding:2em;
+//   position:relative;
+  
+// }
+.aboutteam__image {
+  width: 150px;
+  height: 200px;
+  // border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  // position: relative;
+  // top: -30px; /* move image 30px above container */
+  // margin-left: auto;
+  // margin-right: auto;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  // background: transparent; /* keep transparent */
+}
+
 
 .aboutteam__card-text,
 .aboutteam__card-title {
@@ -36,7 +61,7 @@
   font-size: 1rem;
   line-height: 1.5;
   text-align: center;
-  color:white;
+ color: var(--base-txt-color);
 }
 
 // about team styles
@@ -44,11 +69,14 @@
 .about_team{
   background-color:var(--base-txt-color);
   padding: 3em;          /* spacing top & bottom */
+  background-color:var(--base-txt-color);
+  color: var(--body-bg);
 }
-.teams__container{
-  background-color: var(--body-bg);
-  padding: 2em;           /* spacing top & bottom */
-}
+// .teams__container{
+//   background-color: var(--body-bg);
+//   padding: 2em;           /* spacing top & bottom */
+  
+// }
 .team-title{
   color:var(--body-bg);
   margin-bottom: 1em;

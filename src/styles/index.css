@@ -1806,6 +1806,7 @@ h4 {
 .about_team {
   padding: 4rem 2rem;
   text-align: center;
+  margin-top: 2em;
 }
 
 .teams__container {
@@ -1813,20 +1814,22 @@ h4 {
 }
 
 .aboutteam__card {
-  padding: 2em;
-  background-color: var(--base-txt-color); /* Semi-transparent white */
+  background-color: var(--body-bg);
+  padding: 2em 2em 2em 2em; /* keep bottom padding normal */
   border-radius: 2em;
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px); /* Optional: adds a soft blur effect */
 }
 
-.aboutteam__image img {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 1.5rem;
+.aboutteam__image-container {
+  background-color: var(--base-txt-color); /* or your brand blue */
+  margin: 0 auto; /* center horizontally */
+}
+
+.aboutteam__image {
+  width: 150px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
 }
 
 .aboutteam__card-text,
@@ -1834,17 +1837,14 @@ h4 {
   font-size: 1rem;
   line-height: 1.5;
   text-align: center;
-  color: white;
+  color: var(--base-txt-color);
 }
 
 .about_team {
   background-color: var(--base-txt-color);
   padding: 3em; /* spacing top & bottom */
-}
-
-.teams__container {
-  background-color: var(--body-bg);
-  padding: 2em; /* spacing top & bottom */
+  background-color: var(--base-txt-color);
+  color: var(--body-bg);
 }
 
 .team-title {

@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+// import { RiArrowLeftLine } from "react-icons/ri";
 import {
   RiPlayCircleFill,
   RiDownload2Line,
@@ -64,6 +65,9 @@ export default function PodcastDetail() {
   return (
     <>
       <section className="podcast-detail container">
+        {/* <button onClick={() => navigate(-1)} className="back-btn">
+                <RiArrowLeftLine size={24} /> Back
+              // </button> */}
         <div className="wrapper_image_podcast">
           <div className="cards_podcasts_listen">
             <div className="card_image_podcast">
