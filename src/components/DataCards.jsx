@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardsEntry from "./CardsEntry.jsx";
+import { getAllPodcasts } from "../api.js"; // Import from api.js
 
 export default function DataCards() {
   const [podcasts, setPodcasts] = useState([]);
@@ -11,22 +12,19 @@ export default function DataCards() {
 
   const navigate = useNavigate();
 
-    // Fetch podcasts from the API
-useEffect(() => {
-  async function fetchPodcasts() {
-    try {
-      const res = await fetch("http://localhost:3000/api/podcasts?limit=3&sort=rating_DESC");
-      if (!res.ok) throw new Error("Failed to fetch podcasts");
-
-      const data = await res.json();
-      setPodcasts(data);
-    } catch (err) {
-      setError(err.message);
+  useEffect(() => {
+    async function fetchPodcasts() {
+      try {
+        const data = await getAllPodcasts({ limit: 3, sort: "rating_DESC" }); // Using reusable API
+        setPodcasts(data || []);
+      } catch (err) {
+        setError(err.message || "Failed to load podcasts");
+      }
     }
-  }
 
-  fetchPodcasts();
-}, []);
+    fetchPodcasts();
+  }, []);
+
   return (
     <section className="podcast-section">
       <h1 className="team-title">Recent Podcasts</h1>
@@ -93,3 +91,4 @@ useEffect(() => {
     </section>
   );
 }
+

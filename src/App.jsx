@@ -14,7 +14,8 @@ import Store from './pages/Merch/Store'; // Importing the Store page
 import StoreDetails from './pages/Merch/StoreDetails'; // Importing the StoreDetail page
 import GenreGrid from './pages/Merch/GenreGrid'; // Importing the GenreGrid page
 import MerchByGenre from './pages/Merch/MerchbyGenre'; // Importing
-import PodcastControl from './pages/Podcasts/PodcastControl'; // Importing the PodcastControl page
+// import PodcastControl from './pages/Podcasts/PodcastControl'; // Importing the PodcastControl page
+import PodcastListen from './pages/Podcasts/PodcastListen'; // import your new listen page
 //
 
 
@@ -36,7 +37,7 @@ export default function App() {
             {/* Podcasts routes */}
             <Route path="podcasts" element={<Podcasts />} /> {/*  */}
             <Route path="podcasts/:id" element={<PodcastDetail />} /> {/*  */}
-            <Route path="podcasts/:id/listen" element={<PodcastControl />} /> {/*  */}
+            <Route path="podcasts/:id/listen" element={<PodcastListen />} />
 
 
             {/* Merch routes */}

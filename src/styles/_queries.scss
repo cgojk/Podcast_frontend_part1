@@ -198,7 +198,29 @@
   }
 
 
+  .podcast-listen-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .listen-cover {
+    width: 140px;
+    height: 140px;
+  }
+
+  .listen-info h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .audio-player-wrapper {
+    padding: 1rem 1rem;
+  }
 }
+
+
+
 
 @media (max-width: 550px) {
   
