@@ -123,19 +123,38 @@
   width: 100%;
 }
 
-.search-button {
-  position: absolute;
-  right: 0.2em;
-  top: 30%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #444;
-}
+
 .search-container{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 2em;
+}
+
+.quiz-option-btn {
+  padding: 1rem;
+  margin: 0.5rem;
+  background-color: var(--brand-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.quiz-progress {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.progress-dot.active {
+  background-color: var(--brand-color);
 }
