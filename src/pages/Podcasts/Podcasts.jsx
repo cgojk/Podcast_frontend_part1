@@ -137,7 +137,7 @@ export default function Podcasts() {
       </div>
 
       {/* Podcast Cards */}
-      <div className="contacts">
+      <div className="contacts push-up">
         {podcasts.length > 0 ? (
           podcasts.map((p) => {
             const image = p.cover_image_url || p.imageUrl || getRandomFallbackImage();
@@ -203,7 +203,7 @@ export default function Podcasts() {
 
       {/* Modal */}
       {modalPodcast && (
-        <div className="modal-overlay" onClick={() => setModalPodcast(null)}>
+        <div className="modal-overlay__cards" onClick={() => setModalPodcast(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setModalPodcast(null)}

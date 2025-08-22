@@ -634,3 +634,68 @@
   } 
   }
 }
+
+
+// styles for merch cards 
+
+.contact-card__merch {
+    flex-basis: 280px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 13px;
+    padding-bottom: 20px;
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-card_.contact-card__merch {
+    transform: translateY(-5px); /* move slightly up */
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3); /* deeper shadow on hover */
+}
+.contact-card__merch:hover {
+    will-change: transform;
+}
+
+.contact-card__merch > img {
+    width: 100%;
+    height: auto;
+    align-self: center;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.contact-card__merch > a {
+  display: block; /* so it wraps image cleanly */
+  line-height: 0;  /* removes any inline spacing below img */
+  text-decoration: none; /* no underline */
+}
+.contact-card__merch > h3 {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.info-group__merch  {
+    display: grid;
+    align-items: center;
+}
+.info-group__merch > p {
+    margin-block: 3px;
+    font-size: 12px;
+    color: #2B283A;
+    text-align: left;
+   
+
+}
+.duration_podcast{
+    font-weight: 700;
+
+}
+.card_item__merch{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+
+}
+
+

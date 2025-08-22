@@ -67,7 +67,7 @@ export default function DataCards() {
 
       {/* Modal */}
       {modalPodcast && (
-        <div className="modal-overlay" onClick={() => setModalPodcast(null)}>
+        <div className="modal-overlay__cards" onClick={() => setModalPodcast(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setModalPodcast(null)}

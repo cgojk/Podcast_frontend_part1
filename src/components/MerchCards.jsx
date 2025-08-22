@@ -1,40 +1,34 @@
+
+
+import { FaArrowRight, FaChevronCircleRight, FaChevronRight, FaShoppingCart } from "react-icons/fa"
 import { Link } from "react-router-dom"
+import LazyImage from "./LazyImage/LazyImage";
 
+export default function MerchCards({ product }) {
 
-export default function MerchCards({id,img,name,genre, price, description, duration}) {
+    const placeholder = "/images/crime.jpeg"
+
     return (
-      
-             <article className="contact-card">
-        <div className="cardItem">
-                <div className="cardpodcasts_image">
-                       <Link to={`/store/${id}`} 
-                        aria-label={`View details for podcast "${name}", genre: ${genre}, description:${description}, duration: ${duration}, `}>
-                           <img className="image_podcast"
-                            src={img}
-                            alt="podcast crime"/>
-                       </Link>
-               </div>
-                   <div className ="infoPodcasts">
-                        <div className="title_genre">
-                          <h3 className="title_podcasts_genre">{name}</h3>
-                          <span className={`genre-tag ${genre?.toLowerCase()} selected`}>{genre}</span>
-                        </div>
-                        <div className="info-group">
-                            
-                            <p>{description}</p>
-                        </div>
-                        <div className="info-group">
-                             <p className="price_merch">{price}</p>
-                            <p className="duration_podcast">{duration}</p>
+        <article className="merch-card">
+            <Link className="clickable-area" to={`/store/${product.product_id}`}>
+                <LazyImage 
+                    src={product.images[0]}
+                    alt={product.images_alt_text[0]}
+                />
 
-                        </div>
+                <div className="info-group">
+                    <div className="top-row">
+                        <h3 className="title">{product.name}</h3>
+                        <FaChevronRight fontSize={24}/>
                     </div>
-        </div>
-    </article>
-   
+                    <p className="price">${product.price}</p>
+                </div>
+
+            </Link>
+            <button className="cart-button">Add to cart <FaShoppingCart /></button>
+        </article>
     )
 }
-
 
 
 

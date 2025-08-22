@@ -110,9 +110,9 @@ export default function PodcastDetail() {
         </div>
       </section>
 
-      <section className="podcast-episodes ">
+      <section className="podcast-episodes push-up ">
         <div className="container">
-          <h1 className="team-title center">Episodes</h1>
+          <h1 className="team-title center episode_title">Episodes</h1>
           <div className="episodes-section">
             <button onClick={toggleSortOrder} className="sort-button">
               Sort: {sortOrder === "episode_number_DESC" ? "Newest First" : "Oldest First"}
