@@ -369,6 +369,9 @@ fieldset {
   .podcast-content_detail {
     gap: 0.1em;
   }
+  .testimonials__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 992px) {
   .hero {
@@ -450,6 +453,10 @@ fieldset {
   }
   .podcast-icons {
     margin-top: 1.5em;
+  }
+  .aboutteam__card {
+    display: flex;
+    padding: 0;
   }
   .podcast-content_detail {
     gap: 0.1em;

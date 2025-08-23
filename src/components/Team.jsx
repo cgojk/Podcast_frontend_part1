@@ -11,7 +11,7 @@ export default function Team(){
   {
     image: './images/about/team1.png',
     alt: 'Portrait of Logan Trundle, back-end architect',
-    text: 'Logan keeps projects running like clockwork, balancing deadlines with precision and quality. As our Back-End Architect, he ensures databases, servers, and APIs work seamlessly behind the scenes. His favourite podcast genre is fiction!',
+    text: 'Logan keeps projects running like clockwork, balancing deadlines with precision and quality. As our Back-End, he ensures databases, servers, and APIs work seamlessly. His favourite podcast genre is fiction!',
     name: 'Logan Trundle',
   },
   {

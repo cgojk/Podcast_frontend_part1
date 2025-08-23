@@ -78,7 +78,7 @@ export default function Quiz() {
       }
     } catch (err) {
       setError(
-        "Oops! Something went wrong. Maybe try a different option for some great podcasts!"
+        "Oops! Something went wrong. Maybe try a different option for some great podcasts or check our list of podcasts!"
       );
     } finally {
       setLoading(false);
