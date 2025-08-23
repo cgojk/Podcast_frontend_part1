@@ -70,6 +70,10 @@
 
 
 @media (max-width:768px){
+  .hero{
+    padding:4em 6em;
+    text-align:center;
+  }
 
     .hero-image-wrapper {
     min-width: 300px;
@@ -239,13 +243,22 @@
   .audio-player-wrapper {
     padding: 1rem 1rem;
   }
+  // .aboutteam__card {
+  //   flex-direction: column;
+  //   align-items: center;
+  //   text-align: center;
+  // }
 }
 
 
 
 
 @media (max-width: 550px) {
-  
+  .cardItem{
+    
+    flex-direction:column;
+    
+  }
 .container .episodes-list {
     grid-template-columns: 1fr; /* Single column layout */
   }
@@ -253,6 +266,26 @@
   .episode-card {
     margin-bottom: 1.5rem;
     flex-direction: column;
+  }
+  .aboutteam__card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .aboutteam__card--content .aboutteam__card-text {
+    font-size: 0.7rem;
+  }
+  .about_team {
+    padding: 0;
+  }
+  .mission-description {
+    font-size: 0.8rem;
+    line-height: 1.8;
+  }
+  .container_text_mission{
+    gap:0.2em;
+    
   }
 }
 

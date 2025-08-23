@@ -127,7 +127,7 @@
   flex: 0 0 40%;
   position: relative;
   padding-top: 60%;
-  max-width: 40%;
+//   max-width: 40%;
   overflow: hidden;
 }
 
@@ -666,4 +666,7 @@ display:flex;
 .read-more:hover {
   color: #fff;
   opacity: 0.8;
+}
+.color{
+    color:var(--body-bg);
 }

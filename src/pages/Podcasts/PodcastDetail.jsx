@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { FaCartPlus, FaChevronLeft, FaChevronRight, FaMinus, FaPlus, FaQuestionCircle, FaRegStar, FaSave, FaShare, FaStar, FaTimes } from "react-icons/fa"
 // import { RiArrowLeftLine } from "react-icons/ri";
 import {
   RiPlayCircleFill,
@@ -64,7 +65,21 @@ export default function PodcastDetail() {
 
   return (
     <>
+     <div className="control-bar">
+              <div className="constrain">
+                
+              <button  onClick={() => navigate(-1)} className="button back" >
+                <FaChevronLeft fontSize={12}/>
+                Back
+              </button>
+          </div>
+          </div>
+ 
+                    
+                    
       <section className="podcast-detail container">
+      
+       
         {/* <button onClick={() => navigate(-1)} className="back-btn">
                 <RiArrowLeftLine size={24} /> Back
               // </button> */}

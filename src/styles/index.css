@@ -401,6 +401,10 @@ fieldset {
   }
 }
 @media (max-width: 768px) {
+  .hero {
+    padding: 4em 6em;
+    text-align: center;
+  }
   .hero-image-wrapper {
     min-width: 300px;
     width: 50%;
@@ -529,12 +533,33 @@ fieldset {
   }
 }
 @media (max-width: 550px) {
+  .cardItem {
+    flex-direction: column;
+  }
   .container .episodes-list {
     grid-template-columns: 1fr; /* Single column layout */
   }
   .episode-card {
     margin-bottom: 1.5rem;
     flex-direction: column;
+  }
+  .aboutteam__card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .aboutteam__card--content .aboutteam__card-text {
+    font-size: 0.7rem;
+  }
+  .about_team {
+    padding: 0;
+  }
+  .mission-description {
+    font-size: 0.8rem;
+    line-height: 1.8;
+  }
+  .container_text_mission {
+    gap: 0.2em;
   }
 }
 .add-podcast-form {
@@ -937,7 +962,6 @@ fieldset {
   flex: 0 0 40%;
   position: relative;
   padding-top: 60%;
-  max-width: 40%;
   overflow: hidden;
 }
 
@@ -1416,6 +1440,10 @@ h4 {
 .read-more:hover {
   color: #fff;
   opacity: 0.8;
+}
+
+.color {
+  color: var(--body-bg);
 }
 
 .hero {
@@ -1977,7 +2005,7 @@ h4 {
 }
 
 .about_team {
-  padding: 4rem 2rem;
+  padding: 2em 2em;
   text-align: center;
   margin-top: 2em;
 }
@@ -2015,7 +2043,6 @@ h4 {
 
 .about_team {
   background-color: var(--base-txt-color);
-  padding: 3em; /* spacing top & bottom */
   background-color: var(--base-txt-color);
   color: var(--body-bg);
 }
@@ -2677,7 +2704,7 @@ h4 {
 }
 .button:hover {
   background-color: var(--base-txt-color);
-  color: white;
+  color: var(--body-bg);
 }
 
 .image-gallery {
@@ -2963,68 +2990,4 @@ h4 {
 }
 .control-bar .constrain .options .button:last-child:hover {
   background-color: var(--base-txt-color);
-}
-
-.contact-card__merch {
-  flex-basis: 280px;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  padding: 13px;
-  padding-bottom: 20px;
-  background-color: white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-card_.contact-card__merch {
-  transform: translateY(-5px); /* move slightly up */
-  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3); /* deeper shadow on hover */
-}
-
-.contact-card__merch:hover {
-  will-change: transform;
-}
-
-.contact-card__merch > img {
-  width: 100%;
-  height: auto;
-  align-self: center;
-  border-radius: 5px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.contact-card__merch > a {
-  display: block; /* so it wraps image cleanly */
-  line-height: 0; /* removes any inline spacing below img */
-  text-decoration: none; /* no underline */
-}
-
-.contact-card__merch > h3 {
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.info-group__merch {
-  display: grid;
-  align-items: center;
-}
-
-.info-group__merch > p {
-  margin-block: 3px;
-  font-size: 12px;
-  color: #2B283A;
-  text-align: left;
-}
-
-.duration_podcast {
-  font-weight: 700;
-}
-
-.card_item__merch {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 10px;
 }/*# sourceMappingURL=index.css.map */
