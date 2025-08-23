@@ -1,44 +1,44 @@
 
 export default function Team(){
-  const reviewsData = [
-    {
-      image: './images/about/team1.jpg',
-      alt: 'Team Memeber CEO',
-      text: 'Nakita is the CEO and founder of Corrupted Frequency, she is the one in charge of the company and the vision. Nakita’s favorite podcast genre is true crime!She keeps the team motivated .',
-      name: 'Nakita Santucci',
-    },
-    {
-      image: './images/about/team2-removebg.png',
-      alt: 'A woman around 40 years old she is the one in charge of the Marketing',
-      text: 'Logan keep the project running like the clockwork, balancing deadlines with a sharp ey for quality As our back-end architect, he ensures the database, server, and APIs work seamlessly',
-      name: 'Logan Trundle',
-    },
-    {
-      image: './images/about/team3.png',
-      alt: 'Team Member Podcast Host',
-      text: 'Catalina is one of our talented podcast hosts, known for her engaging storytelling and deep dives into complex topics. Her favorite podcast genre is investigative journalism!',
-      name: 'Catalina Forero',
-    },
-    {
-      image: './images/about/team4.jpg',
-      alt: ' A woman her name is sarah and she is the one in charge of the design',
-      text: 'Katrina is our creative director and designer, she is the one in charge of all the designs and the visual aspect of our podcasts. Sarah’s favorite podcast genre is storytelling!',
-     
-      name: 'Katrina Edillor',
-    },
-    {
-      image: './images/about/team5.jpg',
-      alt: 'a woman around 30 years old he is the one in charge of the development and audio Engineer',
-      text: "Ella is our audio engineer and developer, he is the one in charge of the website and the audio quality of our podcasts. Ealla’s favorite podcast genre is storytelling!",
-      name: 'Ella Smith',
-    },
-    {
-      image: './images/about/team6.jpg',
-      alt: 'A women black hair and glasses she is the one in charge of the social media',
-      text: "Olivia is our social media manager, she is the one in charge of all our social media platforms and the community. Olivia’s favorite podcast genre is true crime!",
-      name: 'Olivia Garcia',
-    },
-  ];
+  const reviewsData = 
+    [
+  {
+    image: './images/about/team2.png',
+    alt: 'Portrait of Nakita Santucci, CEO and founder',
+    text: 'Nakita is the CEO and founder of Corrupted Frequency. She leads the company with vision and passion, overseeing UX design and keeping the team motivated. Her favourite podcast genre is true crime!',
+    name: 'Nakita Santucci',
+  },
+  {
+    image: './images/about/team1.png',
+    alt: 'Portrait of Logan Trundle, back-end architect',
+    text: 'Logan keeps projects running like clockwork, balancing deadlines with precision and quality. As our Back-End Architect, he ensures databases, servers, and APIs work seamlessly behind the scenes. His favourite podcast genre is fiction!',
+    name: 'Logan Trundle',
+  },
+  {
+    image: './images/about/team3.png',
+    alt: 'Portrait of Catalina Forero, front-end developer',
+    text: 'Catalina is our Front-End, bringing designs to life. She transforms complex ideas into user-friendly features, ensuring smooth interaction for every visitor. Her big challenge is making technology accessible',
+    name: 'Catalina Forero',
+  },
+  {
+    image: './images/about/team4.png',
+    alt: 'Portrait of Katrina Edillor, information architect and project manager',
+    text: 'Katrina is our Information Architect and occasional Project Manager. She ensures clear structure and smooth collaboration across the project. She adds visual flair to our podcast application. Her favourite podcast genre is storytelling!',
+    name: 'Katrina Edillor',
+  },
+  {
+    image: './images/about/team6.png',
+    alt: 'Portrait of Ella Smith, UX designer',
+    text: 'Ella is our UX Designer, making sure structure, flow, and organisation stay clear and intuitive. She guides the creative process behind visuals, ensuring experiences are smooth and accessible. Her favourite podcast genre is storytelling!',
+    name: 'Ella Smith',
+  },
+  {
+    image: './images/about/team5.png',
+    alt: 'Portrait of Orlando Oliver, social media manager',
+    text: 'Orlando is our Social Media Manager, handling all platforms and community engagement with creativity and care. He connects listeners with our work and keeps conversations alive. His favourite podcast genre is true crime!',
+    name: 'Orlando Oliver',
+  },
+]
 
 
   return (

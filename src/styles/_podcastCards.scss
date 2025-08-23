@@ -111,6 +111,9 @@
   flex: 1;
   min-width: 0;
   overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .image_podcast{
@@ -644,4 +647,23 @@ display:flex;
   cursor: pointer;
   color: #444;
   margin-right: 0.5em;
+}
+
+.read-more {
+  color:var(--body-bg); /* nice blue */
+  cursor: pointer;
+  padding:0.8em;
+  align-self:start;
+  font-weight: 500;
+    border-radius: 5px;
+
+  text-decoration: none;
+ 
+  transition: color 0.3s ease;
+  background-color: var(--brand-color);
+  font-size:0.8rem;
+}
+.read-more:hover {
+  color: #fff;
+  opacity: 0.8;
 }

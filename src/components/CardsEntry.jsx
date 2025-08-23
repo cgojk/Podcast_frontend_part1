@@ -1,7 +1,5 @@
 
 
-
-
 import { Link } from "react-router-dom";
 import { getRandomFallbackImage } from "../utils/fallbackImage"; // Import the utility function to get fallback images
 
@@ -56,8 +54,12 @@ export default function CardsEntry(props) {
               {genre}
             </span>
             <p className="description_short">{shortDescription}</p>
+            <a href={linkTo} className="read-more">
+              Read More
+            </a>
           </div>
         </div>
+       
       </article>
     );
   }

@@ -24,6 +24,10 @@
 }
 
 
+
+
+
+
   @media(max-width:992px){
  .hero {
     text-align:center;
@@ -52,6 +56,58 @@
 
   }
 }
+
+
+ @media (min-width: 900px) {
+  .section_quiz {
+    grid-template-columns: 1fr 2fr; /* quiz on left, results on right */
+   }
+ }
+
+// .sm-container {
+//   max-width: 600px;
+//   margin: 0 auto;
+//   padding: 1.5rem;
+//   display: flex;
+//   flex-direction: column;
+//   background-color: var(--base-txt-color);
+//   color: var(--body-bg);
+//   gap: 1rem;
+//   border-radius: 8px;
+// }
+
+// .quiz-card {
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1;
+//   border: 1px solid #ccc;
+//   padding: 1rem;
+//   border-radius: 8px;
+// }
+
+// .podcast-results-quiz {
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1;
+//   border: 1px solid #ccc;
+//   padding: 1rem;
+//   border-radius: 8px;
+//   min-height: 400px;
+//   overflow-y: auto;
+//   background-color: var(--body-bg);
+//   color: var(--base-txt-color);
+// }
+
+// .podcast-results-quiz {
+//   opacity: 0;
+//   transform: translateY(10px);
+//   transition: opacity 0.5s ease, transform 0.5s ease;
+// }
+
+// .podcast-results-quiz.show {
+//   opacity: 1;
+//   transform: translateY(0);
+// }
 
 @media (max-width:768px){
 

@@ -392,6 +392,11 @@ fieldset {
     gap: 0.1em;
   }
 }
+@media (min-width: 900px) {
+  .section_quiz {
+    grid-template-columns: 1fr 2fr; /* quiz on left, results on right */
+  }
+}
 @media (max-width: 768px) {
   .hero-image-wrapper {
     min-width: 300px;
@@ -628,11 +633,12 @@ fieldset {
 }
 
 .section_quiz {
-  padding: 2em;
-  background-color: #f5f9f8; /* Light background for contrast */
-  border-radius: 10px;
-  margin-bottom: 2em;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  display: grid;
+  grid-template-columns: 1fr; /* stacked on small screens */
+  gap: 2rem;
+  padding: 3em;
+  background-color: #f5f9f8;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-form {
@@ -665,22 +671,140 @@ fieldset {
   cursor: pointer;
 }
 
-.quiz-progress {
+.sm-container {
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  margin-top: 1rem;
+  flex-direction: column;
+  background-color: var(--base-txt-color);
+  color: var(--body-bg);
+  gap: 1rem;
+  padding: 1em;
+  border-radius: 8px;
 }
 
-.progress-dot {
-  width: 10px;
-  height: 10px;
-  margin: 0 4px;
-  border-radius: 50%;
-  background-color: #ccc;
+.quiz-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 2.5em;
+  border-radius: 10px;
 }
 
-.progress-dot.active {
+.podcast-results-quiz {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: 8px;
+  min-height: 400px;
+  overflow-y: auto;
+  background-color: var(--body-bg);
+  color: var(--base-txt-color);
+  padding: 1rem;
+}
+
+.podcast-results-quiz {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.podcast-results-quiz.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn__quiz-complete {
   background-color: var(--brand-color);
+  color: white;
+  align-items: center;
+  border-radius: 5px;
+  padding: 1em 1.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 2em;
+  flex-basis: auto;
+}
+
+.btn__quiz-complete:hover {
+  background-color: white;
+  color: var(--base-txt-color);
+  border: 0.1em solid var(--brand-color);
+}
+
+.btn__quiz-option {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  margin: 0.5rem 0;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: var(--body-bg);
+  color: var(--base-txt-color);
+  text-align: center;
+  min-height: 3em;
+  flex: 1;
+}
+
+.btn__quiz-option:hover {
+  background-color: var(--brand-color);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn__quiz-option.selected {
+  background-color: var(--brand-color);
+  color: white;
+}
+
+/* state when selected */
+.btn__quiz-option.selected {
+  background-color: var(--brand-color);
+  color: var(--body-bg);
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  color: var(--body-bg);
+  gap: 1rem;
+  align-items: stretch; /* makes all children the same width */
+}
+
+.btn__quiz-option {
+  flex: 1; /* take full available width */
+  text-align: center;
+}
+
+.btn__quiz-option {
+  min-height: 3em; /* or px value */
+}
+
+.quiz-question,
+.quiz-title {
+  color: var(--body-bg);
+}
+
+.fade-slide-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.5s forwards;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.friendly-error {
+  color: #333; /* dark gray for friendly UX */
+  font-style: italic;
+  margin: 1em 0;
 }
 
 .contacts {
@@ -789,6 +913,8 @@ fieldset {
   flex: 1;
   min-width: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .image_podcast {
@@ -1265,6 +1391,24 @@ h4 {
   cursor: pointer;
   color: #444;
   margin-right: 0.5em;
+}
+
+.read-more {
+  color: var(--body-bg); /* nice blue */
+  cursor: pointer;
+  padding: 0.8em;
+  align-self: start;
+  font-weight: 500;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  background-color: var(--brand-color);
+  font-size: 0.8rem;
+}
+
+.read-more:hover {
+  color: #fff;
+  opacity: 0.8;
 }
 
 .hero {
@@ -1838,7 +1982,7 @@ h4 {
 .aboutteam__card {
   background-color: var(--body-bg);
   padding: 2em 2em 2em 2em; /* keep bottom padding normal */
-  border-radius: 2em;
+  border-radius: 1em;
 }
 
 .aboutteam__image-container {

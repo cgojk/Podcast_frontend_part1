@@ -12,11 +12,17 @@ export default function Home() {
         <>
            
             <HeroSection/>
-            <Logos/>
-
-            <DataCards />
+             <Logos/>
+              <DataCards />
             <GenreGrid/>
              <Quiz/>
+             
+           
+
+          
+
+            
+           
 
            
             
