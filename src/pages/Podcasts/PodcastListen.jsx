@@ -1,104 +1,5 @@
 
 
-// import React, { useEffect, useState } from "react";
-// import { useParams, useNavigate } from "react-router-dom";
-// import PodcastControls from "../../components/PodcastControls"; // audio player
-// import {
-//   getSinglePodcast,
-//   getAllPodcastEpisodes,
-//   getSingleEpisodeTranscript,
-// } from "../../api";
-// import { getRandomFallbackImage } from "../../utils/fallbackImage";
-// import { RiArrowLeftLine } from "react-icons/ri";
-
-// export default function PodcastListen() {
-//   const { id } = useParams(); // podcast id
-//   const navigate = useNavigate();
-
-//   const [podcast, setPodcast] = useState(null);
-//   const [episodes, setEpisodes] = useState([]);
-//   const [transcript, setTranscript] = useState("");
-//   const [error, setError] = useState(null);
-//   const [loading, setLoading] = useState(true);
-
-//   const firstEpisode = episodes[0]; // Default: play first
-
-//   useEffect(() => {
-//     async function fetchData() {
-//       try {
-//         const [podcastData, episodeData] = await Promise.all([
-//           getSinglePodcast(id),
-//           getAllPodcastEpisodes(id, { sort: "episode_number_ASC", limit: 1 }),
-//         ]);
-
-//         setPodcast(podcastData);
-//         setEpisodes(episodeData);
-
-//         if (episodeData.length > 0) {
-//           const transcriptData = await getSingleEpisodeTranscript(
-//             episodeData[0].episode_id
-//           );
-//           setTranscript(transcriptData.transcript || "");
-//         }
-
-//         setLoading(false);
-//       } catch (err) {
-//         setError(err.message || "Something went wrong");
-//         setLoading(false);
-//       }
-//     }
-
-//     fetchData();
-//   }, [id]);
-
-//   if (loading) return <p>Loading...</p>;
-//   if (error) return <p>Error: {error}</p>;
-//   if (!podcast || episodes.length === 0) return <p>No content found.</p>;
-
-//   const imageToShow =
-//     podcast.cover_image_url?.trim() || getRandomFallbackImage(podcast.podcast_id);
-
-//   return (
-//     <div className="listen-page container">
-//       <button onClick={() => navigate(-1)} className="back-btn">
-//         <RiArrowLeftLine size={24} /> Back
-//       </button>
-
-//       <div className="podcast-listen-header">
-//         <img
-//           src={imageToShow}
-//           alt={`Cover for ${podcast.title}`}
-//           className="listen-cover"
-//           onError={(e) => {
-//             e.target.onerror = null;
-//             e.target.src = getRandomFallbackImage(podcast.podcast_id);
-//           }}
-//         />
-//         <div className="listen-info">
-//           <h1>{podcast.title}</h1>
-//           <p>{podcast.description}</p>
-//         </div>
-//       </div>
-
-//       <div className="audio-section">
-//         <h2>Now Playing: {firstEpisode.title}</h2>
-//         {/* Pass episodeId to PodcastControls */}
-//         <PodcastControls
-//           audioUrl={firstEpisode.audio_url}
-//           episodeId={firstEpisode.episode_id}
-//         />
-//       </div>
-
-//       {/* {transcript && (
-//         <div className="transcript-section">
-//           <h3>Transcript</h3>
-//           <p>{transcript}</p>
-//         </div>
-//       )} */}
-//     </div>
-//   );
-// }
-
 
 
 import React, { useEffect, useState } from "react";
@@ -180,7 +81,7 @@ export default function PodcastListen() {
           <h1>{podcast.title}</h1>
           <p>{podcast.description}</p>
 
-          {/* <-- Insert Download Icon here: */}
+        
               {currentEpisode?.audio_url && (
                 <a
                   href={currentEpisode.audio_url}
