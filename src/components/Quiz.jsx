@@ -98,7 +98,7 @@ export default function Quiz() {
         // <section className="section_quiz  fade-slide-in push-up">
         <section className="section_quiz   push-up">
           <div className="quiz-card sm-container">
-            <h2 className="quiz-title">Which Podcast Matches Your Vibe?</h2>
+            <h2 className="quiz-title"> Still not sure what podcast to choose </h2>
             <p className="quiz-question">{questions[0].title}</p>
             <div className="quiz-options">
               {questions[0].options.map((opt) => (

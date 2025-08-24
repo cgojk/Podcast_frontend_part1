@@ -740,7 +740,7 @@ fieldset {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.5s ease;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -947,6 +947,7 @@ fieldset {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .image_podcast {
@@ -1366,7 +1367,7 @@ h4 {
   background-color: #c2a83f;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5em 0.5em;
   border-radius: 8px;
   cursor: pointer;
   display: inline-flex;
@@ -1427,10 +1428,9 @@ h4 {
 .read-more {
   color: var(--body-bg); /* nice blue */
   cursor: pointer;
-  padding: 0.8em;
-  align-self: start;
+  padding: 0.5em;
+  align-self: end;
   font-weight: 500;
-  border-radius: 5px;
   text-decoration: none;
   transition: color 0.3s ease;
   background-color: var(--brand-color);
