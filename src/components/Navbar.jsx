@@ -49,7 +49,7 @@ export default function Navbar() {
         to="/about" 
         onClick={handleLinkClick}
         className={({ isActive }) => isActive ? "active nav-link" : "nav-link"}
-        // if the link is active then add the class active 
+        // if the link is active then the class active 
       >
         About
       </NavLink>
