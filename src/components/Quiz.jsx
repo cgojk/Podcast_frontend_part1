@@ -10,7 +10,7 @@ import { getRandomFallbackImage } from "../utils/fallbackImage";
 export default function Quiz() {
   const [answers, setAnswers] = useState([]);
   const [results, setResults] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null);;;;
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
