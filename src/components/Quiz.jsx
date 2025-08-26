@@ -97,7 +97,9 @@ export default function Quiz() {
       {!answers.length && (
         // <section className="section_quiz  fade-slide-in push-up">
         <section className="section_quiz   push-up">
+         
           <div className="quiz-card sm-container">
+            
             <h2 className="quiz-title"> Still not sure what podcast to choose </h2>
             <p className="quiz-question">{questions[0].title}</p>
             <div className="quiz-options">

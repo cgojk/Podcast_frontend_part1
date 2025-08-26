@@ -8,8 +8,8 @@
     width: 100%;
     color: #141413;
     border-radius: 100px;
-    border: 1px solid var(--brand-color);
-    padding: 1em 3em;
+    // border: 1px solid var(--brand-color);
+    // padding: 1em 3em;
     font-size: 1rem;
     outline-offset: 4px;
   }
@@ -21,7 +21,8 @@
   .leading-icon {
     font-size: 1em;
     position: absolute;
-    left: 1em;
+    left: 0.5em;
+    top:1em;
     pointer-events: none;
     color: var(--brand-color);
     line-height: 0;

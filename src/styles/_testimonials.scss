@@ -12,7 +12,8 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--base-txt-color);
-  background-color: rgb(231, 227, 227);
+  background-color: var(--body-bg);
+  border-radius:20px;
 }
 .testimonials__card {
   padding: 0 3rem;
@@ -28,7 +29,7 @@
 }
 
 .testimonials__card-text {
-  font-style: italic;
+  // font-style: italic;
   margin-bottom: 1.5rem;
 }
 

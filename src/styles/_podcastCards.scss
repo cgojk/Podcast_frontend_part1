@@ -5,8 +5,10 @@
     background-color:var(--body-bg);
     padding: 3em;
     gap: 40px;
-    border-radius:20px;
+    border-radius:20px 20px 0px 0px;
+
 }
+
 // fotn size=====
 .description_title{
     color:var(--body-bg);
@@ -564,8 +566,10 @@ display:flex;
 .navigation-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    // margin-top: 2rem;
     gap:2em;
+    background-color:var(--body-bg);
+
 }
 .nav-button,
 .forward-button,
@@ -642,6 +646,7 @@ display:flex;
   position: absolute;
 //   left: -23em;
   top: 40%;
+  left:10px;
   transform: translateY(-50%);
   background: none;
   border: none;

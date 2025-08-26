@@ -26,13 +26,19 @@ export default function DataCards() {
   }, []);
 
   return (
-    <section className="podcast-section">
+    <section className="podcast-section datacards">
+      <img
+          src="/images/Footer_logo2.png"
+          alt="Decorative"
+           className="decorative-float-image"
+           />
       <h1 className="team-title">Recent Podcasts</h1>
       <p className="description_title">
         Check out our latest episodes and discover new favorites!
       </p>
 
       <div className="contacts container">
+        
         {error && <p>Error loading podcasts: {error}</p>}
 
         {podcasts.map((podcast) => (

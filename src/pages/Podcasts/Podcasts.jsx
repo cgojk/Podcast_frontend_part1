@@ -95,7 +95,8 @@ export default function Podcasts() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <section className="podcast-section">
+    <section className="podcast-section podcasts">
+       
       <h1 className="team-title">Explore our Podcasts</h1>
       <p className="title_section-sm">Browse our curated list of episodes.</p>
 
@@ -136,46 +137,47 @@ export default function Podcasts() {
       </div>
 
       {/* Podcast Cards */}
-      <div className="contacts push-up">
-        {podcasts.length > 0 ? (
-          podcasts.map((p) => {
-            const image = p.cover_image_url || p.imageUrl || getRandomFallbackImage();
-            const altText = p.cover_image_alt_text || p.altText || "Podcast cover";
+      <div className="contacts container push-up">
+       
+            {podcasts.length > 0 ? (
+              podcasts.map((p) => {
+                const image = p.cover_image_url || p.imageUrl || getRandomFallbackImage();
+                const altText = p.cover_image_alt_text || p.altText || "Podcast cover";
 
-            return (
-              <CardsEntry
-                key={p.podcast_id || p.id}
-                id={p.podcast_id || p.id}
-                img={image}
-                altText={altText}
-                name={p.title || p.name}
-                description={p.description}
-                genre={p.genre_name || p.genre}
-                duration={`Episodes: ${p.episode_count || p.duration}`}
-                hosts={p.hosts}
-                averageRating={p.average_rating || p.averageRating}
-                mode="compact"
-                linkTo={() =>
-                  setModalPodcast({
-                    id: p.podcast_id || p.id,
-                    img: image,
-                    altText: altText,
-                    name: p.title || p.name,
-                    description: p.description,
-                    genre: p.genre_name || p.genre,
-                    duration: `Episodes: ${p.episode_count || p.duration}`,
-                    hosts: p.hosts,
-                    averageRating: p.average_rating || p.averageRating,
-                  })
-                }
-              />
-            );
-          })
-        ) : (
-          <p>No podcasts found.</p>
-        )}
+                return (
+                  <CardsEntry
+                    key={p.podcast_id || p.id}
+                    id={p.podcast_id || p.id}
+                    img={image}
+                    altText={altText}
+                    name={p.title || p.name}
+                    description={p.description}
+                    genre={p.genre_name || p.genre}
+                    duration={`Episodes: ${p.episode_count || p.duration}`}
+                    hosts={p.hosts}
+                    averageRating={p.average_rating || p.averageRating}
+                    mode="compact"
+                    linkTo={() =>
+                      setModalPodcast({
+                        id: p.podcast_id || p.id,
+                        img: image,
+                        altText: altText,
+                        name: p.title || p.name,
+                        description: p.description,
+                        genre: p.genre_name || p.genre,
+                        duration: `Episodes: ${p.episode_count || p.duration}`,
+                        hosts: p.hosts,
+                        averageRating: p.average_rating || p.averageRating,
+                      })
+                    }
+                  />
+                );
+              })
+            ) : (
+              <p>No podcasts found.</p>
+            )}
 
-        {/* Navigation Buttons */}
+        {/* Navigation Buttons
         <div className="navigation-buttons container">
           <button
             onClick={() => {
@@ -197,7 +199,7 @@ export default function Podcasts() {
               <span className="arrow">→</span> Go to First Podcast
             </button>
           )}
-        </div>
+        </div> */}
       </div>
 
       {/* Modal */}
@@ -222,6 +224,32 @@ export default function Podcasts() {
           </div>
         </div>
       )}
+
+{/* Navigation Buttons */}
+        <div className="navigation-buttons container">
+          <button
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="nav-button top-button"
+          >
+            <span className="arrow">↑</span> Back to Top
+          </button>
+
+          {podcasts.length > 0 && (
+            <button
+              onClick={() => {
+                const firstPodcast = podcasts[0];
+                navigate(`/podcasts/${firstPodcast.podcast_id || firstPodcast.id}`);
+              }}
+              className="nav-button forward-button"
+            >
+              <span className="arrow">→</span> Go to First Podcast
+            </button>
+          )}
+        </div>
+
+
     </section>
   );
 }

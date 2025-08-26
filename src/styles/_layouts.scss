@@ -21,10 +21,12 @@
   padding: 2.5em;
   text-align: center;
   background-color: var(--base-txt-color);
+ 
 
 }
-
-
+.podcast-section.datacards {
+position:relative;
+}
 .section{
     margin:4rem 0;
 

@@ -6,7 +6,7 @@ import { getSingleEpisodeTranscript } from "../api";
 import { FaPlay, FaPause } from "react-icons/fa";
 // import { HiDownload } from "react-icons/hi";
 
-import '../styles/_controlslisten.scss'; // Import your styles
+import '../styles/_controlslisten.scss'; // Import  styles
 
 export default function PodcastControls({ audioUrl, episodeId }) {
   const audioRef = useRef();
@@ -19,7 +19,7 @@ export default function PodcastControls({ audioUrl, episodeId }) {
   const [loadingTranscript, setLoadingTranscript] = useState(false);
   const [transcriptError, setTranscriptError] = useState(null);
 
-  // Load saved progress on mount
+  // Load saved progress 
   useEffect(() => {
     const savedTime = localStorage.getItem(`podcast-${audioUrl}-progress`);
     if (savedTime && audioRef.current) {

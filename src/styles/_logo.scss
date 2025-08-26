@@ -91,3 +91,16 @@
     color:var(--body-bg);
     margin-bottom:1em;
 }
+
+// logo decorative in contaccts section
+
+.decorative-float-image {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  width: 320px;
+  z-index: 0;
+//   opacity: 0.1;
+  pointer-events: none;
+
+}
