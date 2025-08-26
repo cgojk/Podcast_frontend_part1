@@ -1,8 +1,11 @@
 
+
+
+
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getRandomFallbackImage } from "../../utils/fallbackImage.jsx"
-
+import { getRandomFallbackImage } from "../../utils/fallbackImage.jsx";
+import { getAllGenres } from "../../api.js";
 
 export default function GenreGrid() {
   const [genres, setGenres] = useState([]);
@@ -11,14 +14,13 @@ export default function GenreGrid() {
   useEffect(() => {
     async function fetchGenres() {
       try {
-        const res = await fetch("http://localhost:3000/api/genres");
-        const data = await res.json();
+        const data = await getAllGenres(); // Use the shared API function
 
-        const formattedGenres = data.map(genre => ({
+        const formattedGenres = data.map((genre) => ({
           id: genre.genre_id,
           name: genre.name,
-           imageUrl:  getRandomFallbackImage(genre.genre_id),
-           altText:  `Default image for ${genre.name}`,
+          imageUrl: getRandomFallbackImage(genre.genre_id),
+          altText: `Default image for ${genre.name}`,
         }));
 
         setGenres(formattedGenres);
@@ -34,8 +36,7 @@ export default function GenreGrid() {
     <section className="genre-grid container">
       <h1 className="genre-title-home">What kind of podcast genres do you enjoy?</h1>
       <p className="genre-description_home">
-        Explore different genres  from storytelling to true crime, storytelling, Fiction, and more.
-                
+        Explore different genres from storytelling to true crime, fiction, and more.
       </p>
 
       <div className="grid">
@@ -43,19 +44,23 @@ export default function GenreGrid() {
           <div
             key={id}
             className="genre-card"
-            onClick={() => navigate(`/podcasts?genre=${encodeURIComponent(name.toLowerCase())}`)}
+            onClick={() =>
+              navigate(`/podcasts?genre=${encodeURIComponent(name.toLowerCase())}`)
+            }
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && navigate(`/podcasts?genre=${encodeURIComponent(name.toLowerCase())}`)}
+            onKeyDown={(e) =>
+              e.key === "Enter" &&
+              navigate(`/podcasts?genre=${encodeURIComponent(name.toLowerCase())}`)
+            }
           >
             <div className="genre-image-wrapper">
               <img src={imageUrl} alt={altText || name} className="genre-image" />
-             
             </div>
-             <div className="genre-overlay">
-                <h2>{name}</h2>
-                <span className="genre-cta">→ Explore {name}</span>
-              </div>
+            <div className="genre-overlay">
+              <h2>{name}</h2>
+              <span className="genre-cta">→ Explore {name}</span>
+            </div>
           </div>
         ))}
       </div>

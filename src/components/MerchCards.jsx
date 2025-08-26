@@ -6,7 +6,7 @@ import LazyImage from "./LazyImage/LazyImage";
 
 export default function MerchCards({ product }) {
 
-    const placeholder = "/images/crime.jpeg"
+    const placeholder = "/images/default_images/default1.jpeg"
 
     return (
         <article className="merch-card">
