@@ -479,6 +479,12 @@ fieldset {
     display: flex;
     padding: 0;
   }
+  .page-container.product .sub-container .content-container .top-bar .main-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1em;
+  }
   .podcast-content_detail {
     gap: 0.1em;
   }
@@ -607,6 +613,20 @@ fieldset {
   .infoPodcasts .read-more {
     margin-bottom: 4em;
   }
+  .further-info p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+  .main-info h1 {
+    font-size: 2rem;
+  }
+  .page-container.product .sub-container .content-container .top-bar .main-info .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;
+    gap: 1em;
+  }
 }
 @media (max-width: 375px) {
   .btn.btn_hero {
@@ -618,6 +638,10 @@ fieldset {
   }
   .section_quiz .quiz-card {
     padding: 0.5em;
+  }
+  .further-infop {
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 }
 .add-podcast-form {
