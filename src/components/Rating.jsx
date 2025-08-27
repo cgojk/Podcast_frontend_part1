@@ -8,7 +8,7 @@ export default function Rating({color = 'gold'}) {
     const [hover, setHover] = useState(0);
     const [submitted, setSubmitted]=useState(false);
     // Array of stars from 1 to 5
-    // This can be used to display the rating visually
+    // This can is used to display the rating visually
     // or to allow users to select a rating
     const stars = Array.from ({length:5 }, (_,i)=> i + 1);
 

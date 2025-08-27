@@ -1,7 +1,4 @@
 
-
-
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getRandomFallbackImage } from "../../utils/fallbackImage.jsx";

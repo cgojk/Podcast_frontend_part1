@@ -30,7 +30,7 @@ export default function AnimatedWave() {
       <path
         ref={pathRef}
         d="M0,100 C150,0 350,200 500,100 L500,0 L0,0 Z"
-        fill="#dfd932" // color of the wave (match your style)
+        fill="#dfd932"
       />
     </svg>
   );

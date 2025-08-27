@@ -1,7 +1,7 @@
 
 
 import { Link } from "react-router-dom";
-import { getRandomFallbackImage } from "../utils/fallbackImage"; // Import the utility function to get fallback images
+import { getRandomFallbackImage } from "../utils/fallbackImage"; // to get fallback images
 
 export default function CardsEntry(props) {
   const {
