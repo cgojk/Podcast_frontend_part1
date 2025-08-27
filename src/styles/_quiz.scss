@@ -112,7 +112,7 @@
   display: grid;
   grid-template-columns: 1fr; /* stacked on small screens */
   gap: 2rem;
-  padding: 3em;
+  padding: 1.5em;
   background-color: #f5f9f8;
  
 //   border-radius: 10px;
@@ -153,31 +153,7 @@
   cursor: pointer;
 }
 
-// .quiz-progress {
-//   display: flex;
-//   justify-content: center;
-//   margin-top: 1rem;
-// }
 
-// .progress-dot {
-//   width: 10px;
-//   height: 10px;
-//   margin: 0 4px;
-//   border-radius: 50%;
-//   background-color: #ccc;
-// }
-
-// .progress-dot.active {
-//   background-color: var(--brand-color);
-// }
-
-
-// .section_quiz{
-//     display:grid;
-//     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-
-// } 
 .sm-container{
     max-width: 600px;
     margin: 0 auto;
@@ -280,21 +256,22 @@
   flex-direction: column;
   color:var(--body-bg);
   gap: 1rem;
-  align-items: stretch; /* makes all children the same width */
+  align-items: stretch; 
 }
 
 .btn__quiz-option {
-  flex: 1;              /* take full available width */
+  flex: 1;              
   text-align: center;
 }
 
 .btn__quiz-option {
-  min-height: 3em; /* or px value */
+  min-height: 3em; 
 }
 .quiz-question,
 .quiz-title {
   
   color: var(--body-bg);
+  text-align: center;
 }
 
 

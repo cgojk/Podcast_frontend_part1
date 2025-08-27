@@ -663,8 +663,9 @@ display:flex;
   color:var(--body-bg); /* nice blue */
   cursor: pointer;
   padding:0.5em;
-  align-self:end;
+  // align-self:end;
   font-weight: 500;
+  margin-bottom:2em;
    
 
   text-decoration: none;

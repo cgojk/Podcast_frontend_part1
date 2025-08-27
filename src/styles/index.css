@@ -7,7 +7,7 @@
   --body-bg:#f5f3f5;
   --title-color:#white;
   --font-size-title: 2.5rem;
-  --font-size-subtitle: 1.5rem;
+  --font-size-subtitle: 2rem;
   --font-size-base: 1.2rem;
   --font-size-lg: 1.5rem;
   --font-size-sm: 1rem;
@@ -409,6 +409,14 @@ fieldset {
     grid-template-columns: 1fr 2fr; /* quiz on left, results on right */
   }
 }
+@media (max-width: 842px) {
+  .nav-list-item {
+    font-size: 1rem;
+  }
+  .nav-list {
+    gap: 1.5em;
+  }
+}
 @media (max-width: 768px) {
   .hero {
     padding: 4em 6em;
@@ -542,6 +550,11 @@ fieldset {
     padding: 1rem 1rem;
   }
 }
+@media (max-width: 650px) {
+  .cardItem {
+    flex-direction: column;
+  }
+}
 @media (max-width: 550px) {
   header.hero {
     padding: 4em 2em;
@@ -591,11 +604,20 @@ fieldset {
   .btn.btn_hero {
     padding: 0.5em;
   }
+  .infoPodcasts .read-more {
+    margin-bottom: 4em;
+  }
 }
 @media (max-width: 375px) {
   .btn.btn_hero {
     padding: 0.5em;
     font-size: 1rem;
+  }
+  .section_quiz {
+    padding: 1em;
+  }
+  .section_quiz .quiz-card {
+    padding: 0.5em;
   }
 }
 .add-podcast-form {
@@ -704,7 +726,7 @@ fieldset {
   display: grid;
   grid-template-columns: 1fr; /* stacked on small screens */
   gap: 2rem;
-  padding: 3em;
+  padding: 1.5em;
   background-color: #f5f9f8;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
@@ -840,21 +862,22 @@ fieldset {
   flex-direction: column;
   color: var(--body-bg);
   gap: 1rem;
-  align-items: stretch; /* makes all children the same width */
+  align-items: stretch;
 }
 
 .btn__quiz-option {
-  flex: 1; /* take full available width */
+  flex: 1;
   text-align: center;
 }
 
 .btn__quiz-option {
-  min-height: 3em; /* or px value */
+  min-height: 3em;
 }
 
 .quiz-question,
 .quiz-title {
   color: var(--body-bg);
+  text-align: center;
 }
 
 .fade-slide-in {
@@ -1471,8 +1494,8 @@ h4 {
   color: var(--body-bg); /* nice blue */
   cursor: pointer;
   padding: 0.5em;
-  align-self: end;
   font-weight: 500;
+  margin-bottom: 2em;
   text-decoration: none;
   transition: color 0.3s ease;
   background-color: var(--brand-color);

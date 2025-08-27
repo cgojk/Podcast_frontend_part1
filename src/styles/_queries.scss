@@ -74,7 +74,16 @@
    }
  }
 
+@media (max-width: 842px) {
+  .nav-list-item{
 
+    font-size:1rem;
+  }
+  .nav-list{
+   gap:1.5em;
+  }
+ 
+}
 
 @media (max-width:768px){
   .hero{
@@ -258,7 +267,11 @@
   // }
 }
 
-
+@media (max-width:650px){
+  .cardItem{
+    flex-direction: column;
+  }
+}
 
 
 @media (max-width: 550px) {
@@ -318,11 +331,20 @@
     padding:0.5em;
    
   }
+  .infoPodcasts .read-more{
+    margin-bottom: 4em;
+  }
 }
 
 @media (max-width:375px){
   .btn.btn_hero{
     padding:0.5em;
     font-size:1rem;
+  }
+  .section_quiz{
+    padding:1em;
+  }
+  .section_quiz .quiz-card{
+    padding:0.5em;
   }
 }
