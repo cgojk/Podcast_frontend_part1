@@ -13,15 +13,13 @@ import Layout from "./components/Layout"
 import Store from './pages/Merch/Store'; // Importing the Store page
 import StoreDetails from './pages/Merch/StoreDetails'; // Importing the StoreDetail page
 import GenreGrid from './pages/Merch/GenreGrid'; // Importing the GenreGrid page
-import MerchByGenre from './pages/Merch/MerchbyGenre'; // Importing
+import MerchByGenre from './pages/Merch/MerchByGenre'; // Importing
 // import PodcastControl from './pages/Podcasts/PodcastControl'; // Importing the PodcastControl page
 import PodcastListen from './pages/Podcasts/PodcastListen'; // import your new listen page
 //
 
 
 
-// import "./server"
-// // / Importing the server file to ensure server-side rendering is set up correctly
 
 export default function App() {
   return (
