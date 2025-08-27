@@ -7,6 +7,8 @@ import CardsEntry from "../components/CardsEntry";
 import { getRandomFallbackImage } from "../utils/fallbackImage";
 
 
+
+
 export default function Quiz() {
   const [answers, setAnswers] = useState([]);
   const [results, setResults] = useState([]);
@@ -27,6 +29,7 @@ export default function Quiz() {
       ],
     },
   ];
+  
 
   const answerToGenreMap = {
     "A real-life account that opens your eyes": "crime",
