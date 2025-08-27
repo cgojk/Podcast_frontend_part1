@@ -13,9 +13,8 @@
   gap: 6rem;
   align-items: center;
   justify-content: space-between;
- 
-  
-  
+  // adding this
+  // flex-wrap: wrap;
 }
 // * Image styling */
 
@@ -28,7 +27,7 @@
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 5px;
-  color: black;
+  color: var(--body-bg);
   font-weight: bold;
   display: inline-block;
   margin-top: 1rem;

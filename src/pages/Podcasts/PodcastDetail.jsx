@@ -100,7 +100,10 @@ export default function PodcastDetail() {
             </div>
             <div className="podcast-icons">
               <button aria-label="Play audio" className="icon-button">
-                <RiPlayCircleFill size={36} />
+                 <Link to={`/podcasts/${podcast.podcast_id}/listen`} className="flex-btnicon">
+                  <RiPlayCircleFill size={36} />
+                </Link>
+               
               </button>
               <button aria-label="Download podcast" className="icon-button">
                 <RiDownload2Line size={32} />

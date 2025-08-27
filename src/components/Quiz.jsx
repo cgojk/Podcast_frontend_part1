@@ -30,18 +30,18 @@ export default function Quiz() {
 
   const answerToGenreMap = {
     "A real-life account that opens your eyes": "crime",
-    "A high-stakes mystery with layered twists": "storytelling",
+    "A high-stakes mystery with layered twists": "comedy",
     "A surreal narrative that bends reality": "fiction",
     "An immersive world of magic and quests": "fantasy",
-    "A quirky, character-driven quest full of dice rolls": "dnd",
+    "A quirky, character-driven quest full of dice rolls": "storytelling",
   };
 
   const genreIdToName = {
     1: "crime",
-    2: "storytelling",
+    2: "comedy",
     3: "fiction",
     4: "fantasy",
-    5: "dnd",
+    5: "storytelling",
   };
 
   const handleAnswerSelect = async (optionText) => {

@@ -14,7 +14,7 @@ export default function GenreGrid() {
   useEffect(() => {
     async function fetchGenres() {
       try {
-        const data = await getAllGenres(); // Use the shared API function
+        const data = await getAllGenres();
 
         const formattedGenres = data.map((genre) => ({
           id: genre.genre_id,
@@ -44,15 +44,14 @@ export default function GenreGrid() {
           <div
             key={id}
             className="genre-card"
-            onClick={() =>
-              navigate(`/podcasts?genre=${encodeURIComponent(name.toLowerCase())}`)
-            }
+            onClick={() => navigate(`/podcasts?genre=${encodeURIComponent(name.toLowerCase())}`)}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) =>
-              e.key === "Enter" &&
-              navigate(`/podcasts?genre=${encodeURIComponent(name.toLowerCase())}`)
-            }
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                navigate(`/podcasts?genre=${encodeURIComponent(name.toLowerCase())}`);
+              }
+            }}
           >
             <div className="genre-image-wrapper">
               <img src={imageUrl} alt={altText || name} className="genre-image" />

@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import CardsEntry from "../../components/CardsEntry.jsx";
 import {
@@ -18,8 +19,9 @@ export default function Podcasts() {
   const [modalPodcast, setModalPodcast] = useState(null);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // Load genres
+  // Fetch genres 
   useEffect(() => {
     async function loadGenres() {
       try {
@@ -32,10 +34,24 @@ export default function Podcasts() {
     loadGenres();
   }, []);
 
-  // Load all podcasts initially
+  // Fetch podcasts whenever location.search changes (handles genre param)
   useEffect(() => {
-    fetchAllPodcasts();
-  }, []);
+    async function fetchPodcastsBasedOnURL() {
+      const params = new URLSearchParams(location.search);
+      const genreFromURL = params.get("genre");
+
+      if (genreFromURL) {
+        // Capitalize first letter to match the button state
+        const capitalizedGenre = genreFromURL.charAt(0).toUpperCase() + genreFromURL.slice(1).toLowerCase();
+        await handleGenreClick(capitalizedGenre);
+      } else {
+        await fetchAllPodcasts();
+      }
+    }
+
+    fetchPodcastsBasedOnURL();
+ 
+  }, [location.search]);
 
   async function fetchAllPodcasts() {
     try {
@@ -51,7 +67,6 @@ export default function Podcasts() {
     }
   }
 
-  // Handle genre button click
   async function handleGenreClick(name) {
     setSelectedGenre(name);
     setSearchInput("");
@@ -68,13 +83,12 @@ export default function Podcasts() {
     }
   }
 
-  // Handle search form submit
   async function handleSearchSubmit(event) {
     event.preventDefault();
     const genre = searchInput.toLowerCase().trim();
 
     if (!genre) {
-      fetchAllPodcasts(); // reset to all if empty
+      fetchAllPodcasts();
       return;
     }
 
@@ -96,7 +110,6 @@ export default function Podcasts() {
 
   return (
     <section className="podcast-section podcasts">
-       
       <h1 className="team-title">Explore our Podcasts</h1>
       <p className="title_section-sm">Browse our curated list of episodes.</p>
 
@@ -138,68 +151,43 @@ export default function Podcasts() {
 
       {/* Podcast Cards */}
       <div className="contacts container push-up">
-       
-            {podcasts.length > 0 ? (
-              podcasts.map((p) => {
-                const image = p.cover_image_url || p.imageUrl || getRandomFallbackImage();
-                const altText = p.cover_image_alt_text || p.altText || "Podcast cover";
+        {podcasts.length > 0 ? (
+          podcasts.map((p) => {
+            const image = p.cover_image_url || p.imageUrl || getRandomFallbackImage();
+            const altText = p.cover_image_alt_text || p.altText || "Podcast cover";
 
-                return (
-                  <CardsEntry
-                    key={p.podcast_id || p.id}
-                    id={p.podcast_id || p.id}
-                    img={image}
-                    altText={altText}
-                    name={p.title || p.name}
-                    description={p.description}
-                    genre={p.genre_name || p.genre}
-                    duration={`Episodes: ${p.episode_count || p.duration}`}
-                    hosts={p.hosts}
-                    averageRating={p.average_rating || p.averageRating}
-                    mode="compact"
-                    linkTo={() =>
-                      setModalPodcast({
-                        id: p.podcast_id || p.id,
-                        img: image,
-                        altText: altText,
-                        name: p.title || p.name,
-                        description: p.description,
-                        genre: p.genre_name || p.genre,
-                        duration: `Episodes: ${p.episode_count || p.duration}`,
-                        hosts: p.hosts,
-                        averageRating: p.average_rating || p.averageRating,
-                      })
-                    }
-                  />
-                );
-              })
-            ) : (
-              <p>No podcasts found.</p>
-            )}
-
-        {/* Navigation Buttons
-        <div className="navigation-buttons container">
-          <button
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="nav-button top-button"
-          >
-            <span className="arrow">↑</span> Back to Top
-          </button>
-
-          {podcasts.length > 0 && (
-            <button
-              onClick={() => {
-                const firstPodcast = podcasts[0];
-                navigate(`/podcasts/${firstPodcast.podcast_id || firstPodcast.id}`);
-              }}
-              className="nav-button forward-button"
-            >
-              <span className="arrow">→</span> Go to First Podcast
-            </button>
-          )}
-        </div> */}
+            return (
+              <CardsEntry
+                key={p.podcast_id || p.id}
+                id={p.podcast_id || p.id}
+                img={image}
+                altText={altText}
+                name={p.title || p.name}
+                description={p.description}
+                genre={p.genre_name || p.genre}
+                duration={`Episodes: ${p.episode_count || p.duration}`}
+                hosts={p.hosts}
+                averageRating={p.average_rating || p.averageRating}
+                mode="compact"
+                linkTo={() =>
+                  setModalPodcast({
+                    id: p.podcast_id || p.id,
+                    img: image,
+                    altText: altText,
+                    name: p.title || p.name,
+                    description: p.description,
+                    genre: p.genre_name || p.genre,
+                    duration: `Episodes: ${p.episode_count || p.duration}`,
+                    hosts: p.hosts,
+                    averageRating: p.average_rating || p.averageRating,
+                  })
+                }
+              />
+            );
+          })
+        ) : (
+          <p>No podcasts found.</p>
+        )}
       </div>
 
       {/* Modal */}
@@ -225,31 +213,29 @@ export default function Podcasts() {
         </div>
       )}
 
-{/* Navigation Buttons */}
-        <div className="navigation-buttons container">
+      {/* Navigation Buttons */}
+      <div className="navigation-buttons container">
+        <button
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="nav-button top-button"
+        >
+          <span className="arrow">↑</span> Back to Top
+        </button>
+
+        {podcasts.length > 0 && (
           <button
             onClick={() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              const firstPodcast = podcasts[0];
+              navigate(`/podcasts/${firstPodcast.podcast_id || firstPodcast.id}`);
             }}
-            className="nav-button top-button"
+            className="nav-button forward-button"
           >
-            <span className="arrow">↑</span> Back to Top
+            <span className="arrow">→</span> Go to First Podcast
           </button>
-
-          {podcasts.length > 0 && (
-            <button
-              onClick={() => {
-                const firstPodcast = podcasts[0];
-                navigate(`/podcasts/${firstPodcast.podcast_id || firstPodcast.id}`);
-              }}
-              className="nav-button forward-button"
-            >
-              <span className="arrow">→</span> Go to First Podcast
-            </button>
-          )}
-        </div>
-
-
+        )}
+      </div>
     </section>
   );
 }

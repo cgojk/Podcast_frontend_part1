@@ -13,6 +13,9 @@
 
   }
   @media (max-width: 1024px) {
+    header.hero{
+      padding:7em 4em;
+    }
   .wrapper_image_podcast .aspect-ratio-box {
     padding-top: 90%;
   }
@@ -36,11 +39,15 @@
     text-align:center;
 
  }
+
  .hero .hero-flex{
     flex-direction:column;
     padding-bottom:4rem;
 
  }
+
+
+
  /* Testimonials */
   .testimonials__container {
     grid-template-columns: repeat(2, 1fr);
@@ -199,6 +206,7 @@
     width: 100%;
     max-width: 100%;
     min-width: 100%;
+    gap:0.8em;
     
   }
 
@@ -254,6 +262,14 @@
 
 
 @media (max-width: 550px) {
+  header.hero{
+    padding:4em 2em;
+  }
+  .podcast-section .decorative-float-image{
+    width:220px;
+    top:-35px;
+    left:-35px;
+  }
   .cardItem{
     
     flex-direction:column;
@@ -297,7 +313,16 @@
     padding:0.5em;
     margin:1em auto;
   }
-  
+
+  .btn.btn_hero{
+    padding:0.5em;
+   
+  }
 }
 
-    
+@media (max-width:375px){
+  .btn.btn_hero{
+    padding:0.5em;
+    font-size:1rem;
+  }
+}

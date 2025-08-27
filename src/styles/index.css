@@ -191,6 +191,10 @@ img {
   background-color: var(--base-txt-color);
 }
 
+.podcast-section.datacards {
+  position: relative;
+}
+
 .section {
   margin: 4rem 0;
 }
@@ -261,7 +265,8 @@ img {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--base-txt-color);
-  background-color: rgb(231, 227, 227);
+  background-color: var(--body-bg);
+  border-radius: 20px;
 }
 
 .testimonials__card {
@@ -278,7 +283,6 @@ img {
 }
 
 .testimonials__card-text {
-  font-style: italic;
   margin-bottom: 1.5rem;
 }
 
@@ -302,11 +306,13 @@ input[type=email], input[type=password] {
 
 textarea {
   margin-bottom: 20px;
+  border: 1px solid var(--brand-color);
+  padding: 1em;
 }
 
 input[type=text], input[type=name] {
   border-radius: 100px;
-  border: 3px solid var(--brand-color);
+  border: 1px solid var(--brand-color);
   height: 2rem;
   text-indent: 10px;
   margin-bottom: 20px;
@@ -314,10 +320,10 @@ input[type=text], input[type=name] {
 }
 
 fieldset {
-  border: 1px solid #262626;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--brand-color);
 }
 
 .button_submit {
@@ -363,6 +369,9 @@ fieldset {
   }
 }
 @media (max-width: 1024px) {
+  header.hero {
+    padding: 7em 4em;
+  }
   .wrapper_image_podcast .aspect-ratio-box {
     padding-top: 90%;
   }
@@ -494,6 +503,7 @@ fieldset {
     width: 100%;
     max-width: 100%;
     min-width: 100%;
+    gap: 0.8em;
   }
   .episode-card .episode-image,
   .episode-card .episode-content {
@@ -533,6 +543,14 @@ fieldset {
   }
 }
 @media (max-width: 550px) {
+  header.hero {
+    padding: 4em 2em;
+  }
+  .podcast-section .decorative-float-image {
+    width: 220px;
+    top: -35px;
+    left: -35px;
+  }
   .cardItem {
     flex-direction: column;
   }
@@ -560,6 +578,24 @@ fieldset {
   }
   .container_text_mission {
     gap: 0.2em;
+  }
+}
+@media (max-width: 420px) {
+  .contacts {
+    padding: 0.1em;
+  }
+  .podcast-section {
+    padding: 0.5em;
+    margin: 1em auto;
+  }
+  .btn.btn_hero {
+    padding: 0.5em;
+  }
+}
+@media (max-width: 375px) {
+  .btn.btn_hero {
+    padding: 0.5em;
+    font-size: 1rem;
   }
 }
 .add-podcast-form {
@@ -846,7 +882,7 @@ fieldset {
   background-color: var(--body-bg);
   padding: 3em;
   gap: 40px;
-  border-radius: 20px;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .description_title {
@@ -948,6 +984,7 @@ fieldset {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0.5em;
 }
 
 .image_podcast {
@@ -1071,8 +1108,12 @@ fieldset {
   background-color: #161616;
 }
 
-.genre-tag.dna:hover, .genre-tag.dnd.selected {
+.genre-tag.dna:hover, .genre-tag.comedy.selected {
   background-color: #99eab2;
+}
+
+.genre-tag.dna:hover, .genre-tag.fiction.selected {
+  background-color: #99a9ea;
 }
 
 .genre-tag.clear-filters {
@@ -1356,8 +1397,8 @@ h4 {
 .navigation-buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
   gap: 2em;
+  background-color: var(--body-bg);
 }
 
 .nav-button,
@@ -1417,6 +1458,7 @@ h4 {
 .search-button {
   position: absolute;
   top: 40%;
+  left: 10px;
   transform: translateY(-50%);
   background: none;
   border: none;
@@ -1466,7 +1508,7 @@ h4 {
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 5px;
-  color: black;
+  color: var(--body-bg);
   font-weight: bold;
   display: inline-block;
   margin-top: 1rem;
@@ -1679,7 +1721,6 @@ h4 {
   background-color: var(--body-bg);
   margin: 2rem auto 4rem;
   padding: 2em;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--base-txt-color);
   border-radius: 1rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
@@ -1711,7 +1752,6 @@ h4 {
 .podcast-listen-header {
   display: flex;
   gap: 2rem;
-  align-items: flex-start;
   margin-bottom: 2.5rem;
 }
 
@@ -2140,6 +2180,15 @@ h4 {
   margin-bottom: 1em;
 }
 
+.decorative-float-image {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  width: 320px;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .modal-overlay__cards {
   position: fixed;
   inset: 0;
@@ -2203,8 +2252,6 @@ h4 {
   width: 100%;
   color: #141413;
   border-radius: 100px;
-  border: 1px solid var(--brand-color);
-  padding: 1em 3em;
   font-size: 1rem;
   outline-offset: 4px;
 }
@@ -2214,7 +2261,8 @@ h4 {
 .search-container .leading-icon {
   font-size: 1em;
   position: absolute;
-  left: 1em;
+  left: 0.5em;
+  top: 1em;
   pointer-events: none;
   color: var(--brand-color);
   line-height: 0;
@@ -2498,6 +2546,7 @@ h4 {
   align-items: center;
   justify-content: center;
   min-height: 130px;
+  margin-top: 2em;
 }
 
 .results-controls {
@@ -2548,6 +2597,7 @@ h4 {
   background-color: #fff;
   border: 1px solid var(--brand-color);
   border-radius: 6px;
+  color: var(--base-txt-color);
   cursor: pointer;
 }
 .results-controls .sorting-controls .sort-button svg {
@@ -2592,6 +2642,12 @@ h4 {
   }
   .mobile {
     display: block;
+  }
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+  .results-controls {
+    flex-direction: column;
   }
 }
 .merch-card {
